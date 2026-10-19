@@ -1,0 +1,39 @@
+{
+  "name": "fileharbor",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Free online file tools (images, PDF, Word, Excel) that run in the browser.",
+  "scripts": {
+    "dev": "vite",
+    "seo": "node scripts/generate-seo-files.js",
+    "prebuild": "node scripts/generate-seo-files.js",
+    "build": "vite build && node scripts/prerender-meta.js",
+    "preview": "vite preview",
+    "test": "node scripts/check.mjs",
+    "launch-check": "node scripts/launch-check.mjs"
+  },
+  "dependencies": {
+    "@cantoo/pdf-lib": "^2.11.1",
+    "@depup/mammoth": "^1.13.0-depup.0",
+    "docx": "^9.0.2",
+    "exceljs": "^4.4.0",
+    "jszip": "^3.10.1",
+    "papaparse": "^5.4.1",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.10.38",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}

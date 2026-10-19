@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fylzora</title>
+    <meta name="description" content="Free online tools for images, PDF, Word and Excel files, designed to run in your browser." />
+    <meta name="theme-color" content="#1F5FE0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FileHarbor" />
+    <meta property="og:title" content="FileHarbor – Free online file tools" />
+    <meta property="og:description" content="Free online tools for images, PDF, Word and Excel files, designed to run in your browser." />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Dark mode flash se bachne ke liye page load se pehle theme set karte hain.
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Fylzora needs JavaScript enabled, because its tools run inside your browser.</noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
