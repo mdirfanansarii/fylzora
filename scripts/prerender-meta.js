@@ -39,7 +39,8 @@ function render(p, file404 = false) {
     .replace(/(<meta name="description" content=")[^"]*/, `$1${esc(p.desc)}`)
     .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(full)}`)
     .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(p.desc)}`)
-    .replace('</head>', `${adScript}<link rel="canonical" href="${file404 ? site + '/' : url}">\n<meta property="og:url" content="${url}">\n<meta name="robots" content="${p.index ? 'index, follow' : 'noindex, follow'}">\n</head>`)
+    .replace('</head>', `<link rel="canonical" href="${file404 ? site + '/' : url}">\n<meta property="og:url" content="${url}">\n<meta name="robots" content="${p.index ? 'index, follow' : 'noindex, follow'}">\n</head>`)
+
     .replace(/<noscript>[\s\S]*?<\/noscript>/, `<noscript><h1>${esc(p.title || name)}</h1><p>${esc(p.desc)}</p><p>${name} needs JavaScript enabled, because its tools run inside your browser.</p></noscript>`);
   return h;
 }
