@@ -214,3 +214,8 @@ code { background: var(--surface); padding: .1rem .35rem; border-radius: 4px; wo
 .pdf-page canvas { display: block; }
 .pdf-overlay { position: absolute; left: 0; top: 0; touch-action: none; cursor: crosshair; }
 .pdf-typing { position: absolute; background: rgba(255, 255, 255, .85); border: 1px dashed var(--blue); padding: 0; margin: 0; font-family: Helvetica, Arial, sans-serif; min-width: 120px; line-height: 1.1; }
+
+/* Prevent the footer from appearing too early while lazy pages load */
+.page-loading {
+  min-height: 100vh;
+}
