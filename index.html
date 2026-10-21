@@ -3,42 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Fylzora</title>
-    <meta name="description" content="Free online tools for images, PDF, Word and Excel files, designed to run in your browser." />
+
+    <meta
+      name="description"
+      content="Free online tools for images, PDF, Word and Excel files, designed to run in your browser."
+    />
     <meta name="theme-color" content="#1F5FE0" />
+    <meta name="robots" content="index, follow" />
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Fylzora" />
     <meta property="og:title" content="Fylzora – Free online file tools" />
-    <meta property="og:description" content="Free online tools for images, PDF, Word and Excel files, designed to run in your browser." />
+    <meta
+      property="og:description"
+      content="Free online tools for images, PDF, Word and Excel files, designed to run in your browser."
+    />
     <meta name="twitter:card" content="summary" />
-    <meta name="google-site-verification" content="u7oXzPxK-YkKL4Q4oMx8hF1be5I2w0MONTa2GzC7C24" />
+
+    <meta
+      name="google-site-verification"
+      content="u7oXzPxK-YkKL4Q4oMx8hF1be5I2w0MONTa2GzC7C24"
+    />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Apply the saved theme before rendering to prevent a theme flash -->
     <script>
-      // Dark mode flash se bachne ke liye page load se pehle theme set karte hain.
       (function () {
         try {
-          var t = localStorage.getItem('theme');
-          if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          document.documentElement.setAttribute('data-theme', t);
-        } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+          var theme = localStorage.getItem("theme");
+
+          if (theme !== "dark" && theme !== "light") {
+            theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          }
+
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (error) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
       })();
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2635760591023606"
-     crossorigin="anonymous"></script>
-     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWTC5WST5Y"></script>
+
+    <!-- Google AdSense: retained for your existing ad setup -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2635760591023606"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google Analytics: queue events immediately, load the library after page load -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-TWTC5WST5Y');
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+      gtag("config", "G-TWTC5WST5Y");
+
+      (function () {
+        var analyticsLoaded = false;
+
+        function loadAnalytics() {
+          if (analyticsLoaded) return;
+          analyticsLoaded = true;
+
+          var script = document.createElement("script");
+          script.async = true;
+          script.src =
+            "https://www.googletagmanager.com/gtag/js?id=G-TWTC5WST5Y";
+
+          document.head.appendChild(script);
+        }
+
+        if (document.readyState === "complete") {
+          setTimeout(loadAnalytics, 0);
+        } else {
+          window.addEventListener("load", loadAnalytics, { once: true });
+        }
+      })();
     </script>
-
   </head>
+
   <body>
     <div id="root"></div>
-    <noscript>Fylzora needs JavaScript enabled, because its tools run inside your browser.</noscript>
+
+    <noscript>
+      Fylzora needs JavaScript enabled, because its tools run inside your browser.
+    </noscript>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+
