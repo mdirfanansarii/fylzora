@@ -2,8 +2,8 @@ import { lazy } from 'react';
 import { Navigate, Route, Routes, useParams } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
 import { bySlug, categories, categoryKeyBySlug } from './data/tools.js';
+import Home from './pages/Home.jsx';
 
-const Home = lazy(() => import('./pages/Home.jsx'));
 const AllTools = lazy(() => import('./pages/AllTools.jsx'));
 const CategoryPage = lazy(() => import('./pages/CategoryPage.jsx'));
 const ToolPage = lazy(() => import('./pages/ToolPage.jsx'));
