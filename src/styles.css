@@ -85,7 +85,11 @@ main:focus { outline: none; }
 .chips a:hover { border-color: var(--blue); color: var(--blue); }
 
 /* Category blocks and tool lists */
-.cat-block { margin-top: 2.5rem; }
+.cat-block {
+  margin-top: 2.5rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
+}
 .cat-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem; flex-wrap: wrap; border-left: 4px solid var(--blue); padding-left: .9rem; margin-bottom: 1rem; }
 .cat-head h2, .cat-head p { margin: 0; }
 .tool-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); border-top: 1px solid var(--line); }
