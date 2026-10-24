@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import { Navigate, Route, Routes, useParams } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Layout from './components/Layout.jsx';
 import { bySlug, categories, categoryKeyBySlug } from './data/tools.js';
 import Home from './pages/Home.jsx';
@@ -30,20 +31,23 @@ function SlugRoute() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="all-tools" element={<AllTools />} />
-        <Route path="about" element={<Legal.About />} />
-        <Route path="contact" element={<Legal.Contact />} />
-        <Route path="privacy-policy" element={<Legal.Privacy />} />
-        <Route path="terms-of-service" element={<Legal.Terms />} />
-        <Route path="disclaimer" element={<Legal.Disclaimer />} />
-        <Route path="cookie-and-advertising" element={<Legal.Cookies />} />
-        <Route path="faq" element={<Legal.Faq />} />
-        <Route path=":slug" element={<SlugRoute />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="all-tools" element={<AllTools />} />
+          <Route path="about" element={<Legal.About />} />
+          <Route path="contact" element={<Legal.Contact />} />
+          <Route path="privacy-policy" element={<Legal.Privacy />} />
+          <Route path="terms-of-service" element={<Legal.Terms />} />
+          <Route path="disclaimer" element={<Legal.Disclaimer />} />
+          <Route path="cookie-and-advertising" element={<Legal.Cookies />} />
+          <Route path="faq" element={<Legal.Faq />} />
+          <Route path=":slug" element={<SlugRoute />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+      <Analytics />
+    </>
   );
 }
