@@ -25,6 +25,7 @@ const site = (env.VITE_SITE_URL || 'https://your-domain.com').replace(/\/$/, '')
 const today = new Date().toISOString().slice(0, 10);
 
 const paths = [
+  '/blog/how-to-reduce-image-to-100kb',
   '/',
   '/all-tools',
   // Category pages are noindex until at least one of their tools is live, so keep them out of the sitemap too.

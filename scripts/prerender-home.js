@@ -6,7 +6,23 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const output = path.join(root, 'dist', 'index.html');
+
+const routes = [
+  {
+    location: '/',
+    output: path.join(root, 'dist', 'index.html'),
+  },
+  {
+    location: '/blog/how-to-reduce-image-to-100kb',
+    output: path.join(
+      root,
+      'dist',
+      'blog',
+      'how-to-reduce-image-to-100kb',
+      'index.html'
+    ),
+  },
+];
 
 const vite = await createServer({
   server: { middlewareMode: true },
@@ -17,28 +33,35 @@ const vite = await createServer({
 try {
   const { default: App } = await vite.ssrLoadModule('/src/App.jsx');
 
-  const app = React.createElement(
-    StaticRouter,
-    { location: '/' },
-    React.createElement(App)
-  );
+  for (const route of routes) {
+    if (!fs.existsSync(route.output)) {
+      throw new Error(`HTML file not found: ${route.output}`);
+    }
 
-  const markup = renderToString(app);
-  const html = fs.readFileSync(output, 'utf8');
+    const app = React.createElement(
+      StaticRouter,
+      { location: route.location },
+      React.createElement(App)
+    );
 
-  if (!html.includes('<div id="root"></div>')) {
-    throw new Error('Expected empty root not found in dist/index.html');
+    const markup = renderToString(app);
+    const html = fs.readFileSync(route.output, 'utf8');
+    const emptyRoot = '<div id="root"></div>';
+
+    if (!html.includes(emptyRoot)) {
+      throw new Error(
+        `Expected empty React root not found: ${route.output}`
+      );
+    }
+
+    fs.writeFileSync(
+      route.output,
+      html.replace(emptyRoot, `<div id="root">${markup}</div>`)
+    );
+
+    console.log(`Prerendered: ${route.location}`);
   }
-
-  fs.writeFileSync(
-    output,
-    html.replace(
-      '<div id="root"></div>',
-      `<div id="root">${markup}</div>`
-    )
-  );
-
-  console.log('Homepage prerendered successfully.');
 } finally {
   await vite.close();
 }
+

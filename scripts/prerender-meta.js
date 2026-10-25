@@ -22,6 +22,7 @@ const tpl = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 const pages = [
+  { path: '/blog/how-to-reduce-image-to-100kb', title: 'How to Reduce an Image to 100KB Online', desc: 'Learn how to reduce an image to 100KB online with compression, format selection, and quality settings. Get practical tips to keep images clear and lightweight.', index: true },
   { path: '/', title: '', desc: 'Free online tools for images, PDF, Word and Excel files, designed to run in your browser with no sign-up.', index: true },
   { path: '/all-tools', title: 'All Tools', desc: 'Every image, PDF, Word and Excel tool in one list.', index: true },
   ...Object.entries(categories).map(([k, c]) => ({ path: `/${c.slug}`, title: c.name,

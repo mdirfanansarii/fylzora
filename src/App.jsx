@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useParams } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
 import { bySlug, categories, categoryKeyBySlug } from './data/tools.js';
 import Home from './pages/Home.jsx';
+import Blog100KB from './pages/Blog100KB.jsx';
 
 const AllTools = lazy(() => import('./pages/AllTools.jsx'));
 const CategoryPage = lazy(() => import('./pages/CategoryPage.jsx'));
@@ -41,7 +42,8 @@ export default function App() {
         <Route path="disclaimer" element={<Legal.Disclaimer />} />
         <Route path="cookie-and-advertising" element={<Legal.Cookies />} />
         <Route path="faq" element={<Legal.Faq />} />
-        <Route path=":slug" element={<SlugRoute />} />
+        <Route path="blog/how-to-reduce-image-to-100kb" element={<Blog100KB />} />
+    <Route path=":slug" element={<SlugRoute />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

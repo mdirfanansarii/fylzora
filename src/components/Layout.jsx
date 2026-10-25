@@ -71,6 +71,7 @@ export default function Layout() {
             <ul>
               {Object.values(categories).map((c) => <li key={c.slug}><Link to={`/${c.slug}`}>{c.name}</Link></li>)}
               <li><Link to="/all-tools">All Tools</Link></li>
+              <li><Link to="/blog/how-to-reduce-image-to-100kb">Image size guide</Link></li>
             </ul>
           </div>
           <div>
