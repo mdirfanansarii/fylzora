@@ -27,6 +27,110 @@ function outType(file, o, mode) {
   return BASIC.includes(file.type) ? file.type : 'image/png';
 }
 
+function replaceEdgeBackground(ctx, width, height, color) {
+  const image = ctx.getImageData(0, 0, width, height);
+  const data = image.data;
+  const total = width * height;
+  if (!total || !width || !height) return;
+
+  // Find the dominant colour along the image border instead of treating
+  // every corner as background (a corner can contain the person's clothes).
+  const bins = new Map();
+  const step = Math.max(1, Math.floor(Math.min(width, height) / 250));
+  const addBorderSample = (index) => {
+    const p = index * 4;
+    if (data[p + 3] < 32) return;
+    const r = data[p], g = data[p + 1], b = data[p + 2];
+    const key = `${r >> 5},${g >> 5},${b >> 5}`;
+    const item = bins.get(key) || { count: 0, r: 0, g: 0, b: 0 };
+    item.count++;
+    item.r += r;
+    item.g += g;
+    item.b += b;
+    bins.set(key, item);
+  };
+
+  for (let x = 0; x < width; x += step) {
+    addBorderSample(x);
+    if (height > 1) addBorderSample((height - 1) * width + x);
+  }
+  for (let y = 0; y < height; y += step) {
+    addBorderSample(y * width);
+    if (width > 1) addBorderSample(y * width + width - 1);
+  }
+
+  let sample = null;
+  for (const item of bins.values()) {
+    if (!sample || item.count > sample.count) sample = item;
+  }
+
+  const match = /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(
+    color || '#ffffff'
+  );
+  const rgb = match
+    ? [parseInt(match[1], 16), parseInt(match[2], 16), parseInt(match[3], 16)]
+    : [255, 255, 255];
+
+  // If the image has no opaque border pixels, only replace edge-connected
+  // transparent pixels with the selected background colour.
+  const background = sample
+    ? [sample.r / sample.count, sample.g / sample.count, sample.b / sample.count]
+    : null;
+
+  const original = new Uint8ClampedArray(data);
+  const visited = new Uint8Array(total);
+  const stack = new Int32Array(total);
+  let top = 0;
+
+  // Tighter threshold reduces the chance of matching similarly coloured clothes.
+  const tolerance = 26;
+  const isBackgroundPixel = (index) => {
+    const p = index * 4;
+    if (original[p + 3] < 32) return true;
+    if (!background) return false;
+
+    const dr = original[p] - background[0];
+    const dg = original[p + 1] - background[1];
+    const db = original[p + 2] - background[2];
+    return Math.max(Math.abs(dr), Math.abs(dg), Math.abs(db)) <= tolerance;
+  };
+
+  const push = (index) => {
+    if (index < 0 || index >= total || visited[index]) return;
+    if (!isBackgroundPixel(index)) return;
+    visited[index] = 1;
+    stack[top++] = index;
+  };
+
+  // Flood-fill only from the outer border. A shirt area inside the image
+  // will not be selected just because its colour resembles the background.
+  for (let x = 0; x < width; x++) {
+    push(x);
+    if (height > 1) push((height - 1) * width + x);
+  }
+  for (let y = 0; y < height; y++) {
+    push(y * width);
+    if (width > 1) push(y * width + width - 1);
+  }
+
+  while (top > 0) {
+    const index = stack[--top];
+    const p = index * 4;
+    data[p] = rgb[0];
+    data[p + 1] = rgb[1];
+    data[p + 2] = rgb[2];
+    data[p + 3] = 255;
+
+    const x = index % width;
+    if (x > 0) push(index - 1);
+    if (x + 1 < width) push(index + 1);
+    if (index >= width) push(index - width);
+    if (index + width < total) push(index + width);
+  }
+
+  ctx.putImageData(image, 0, 0);
+}
+
 async function render(file, o, mode) {
   const bmp = await createImageBitmap(file);
   try {
@@ -43,14 +147,18 @@ async function render(file, o, mode) {
     const c = document.createElement('canvas');
     c.width = cw; c.height = ch;
     const ctx = c.getContext('2d');
+    if (!ctx) throw new Error('Your browser could not create an image canvas. Try another browser.');
     const type = outType(file, o, mode);
-    if (type === 'image/jpeg' || mode === 'background') {
-      ctx.fillStyle = mode === 'background' ? o.bg : '#ffffff';
+    if (type === 'image/jpeg' && mode !== 'background') {
+      ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, cw, ch);
     }
     ctx.translate(cw / 2, ch / 2);
     if (mode === 'rotate') { ctx.rotate(o.rot * Math.PI / 180); ctx.scale(o.flipH ? -1 : 1, o.flipV ? -1 : 1); }
     ctx.drawImage(bmp, -w / 2, -h / 2, w, h);
+    if (mode === 'background') {
+      replaceEdgeBackground(ctx, cw, ch, o.bg);
+    }
     const blob = await new Promise((r) => c.toBlob(r, type, o.q));
     if (!blob) throw new Error(`Your browser can’t create ${NAMES[type]} files. Try another output format.`);
     return { blob, w: cw, h: ch, type };
@@ -86,10 +194,24 @@ export default function ImageTool({ mode }) {
         bmp.close();
       } catch { next.push({ id: file.name + Math.random(), file, bad: true }); }
     }
-    const good = next.filter((n) => !n.bad);
-    if (next.some((n) => n.bad)) setInfo((i) => i);
+    let good = next.filter((n) => !n.bad);
+    // In multi-file mode, enforce the limit and release previews for files not accepted.
+    if (multi) {
+      setFiles((prev) => {
+        const room = Math.max(0, 20 - prev.length);
+        const accepted = good.slice(0, room);
+        const acceptedIds = new Set(accepted.map((f) => f.id));
+        good.filter((f) => !acceptedIds.has(f.id)).forEach((f) => {
+          URL.revokeObjectURL(f.url);
+          urls.current = urls.current.filter((u) => u !== f.url);
+        });
+        return [...prev, ...accepted];
+      });
+      good = good.slice(0, Math.max(0, 20 - files.length));
+    } else {
+      setFiles(good);
+    }
     if (m === 'resize' && good[0]) set({ w: good[0].w, h: good[0].h });
-    setFiles((prev) => (multi ? [...prev, ...good].slice(0, 20) : good));
     if (mode === 'check') {
       setInfo(await Promise.all(good.map(async (g) => ({ id: g.id, real: await sniff(g.file) }))));
     }
@@ -103,7 +225,14 @@ export default function ImageTool({ mode }) {
   };
 
   useEffect(() => {
-    if (!files.length || mode === 'check') { setResults([]); return undefined; }
+    if (!files.length || mode === 'check') {
+      setResults((prev) => {
+        prev.forEach((r) => r.url && URL.revokeObjectURL(r.url));
+        return [];
+      });
+      setBusy(false);
+      return undefined;
+    }
     let dead = false;
     const t = setTimeout(async () => {
       setBusy(true);
@@ -116,10 +245,25 @@ export default function ImageTool({ mode }) {
       setResults((prev) => { prev.forEach((r) => r.url && URL.revokeObjectURL(r.url)); return next; });
       setBusy(false);
     }, 300);
-    return () => { dead = true; clearTimeout(t); };
+    return () => {
+      dead = true;
+      clearTimeout(t);
+      setBusy(false);
+    };
   }, [files, o, m, mode]);
 
-  const reset = () => { setFiles([]); setResults([]); setInfo([]); setDecodeErr(''); };
+  const reset = () => {
+    urls.current.forEach((u) => URL.revokeObjectURL(u));
+    urls.current = [];
+    setResults((prev) => {
+      prev.forEach((r) => r.url && URL.revokeObjectURL(r.url));
+      return [];
+    });
+    setFiles([]);
+    setInfo([]);
+    setDecodeErr('');
+    setBusy(false);
+  };
   const lossy = (t) => t === 'image/jpeg' || t === 'image/webp';
   const first = files[0];
   const showQ = (m === 'compress' || m === 'convert') && (o.fmt === 'same' || lossy(o.fmt));
@@ -236,3 +380,4 @@ export default function ImageTool({ mode }) {
     </div>
   );
 }
+
