@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import CategoryPage from './pages/CategoryPage.jsx';
 import { Navigate, Route, Routes, useParams } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
 import { bySlug, categories, categoryKeyBySlug } from './data/tools.js';
@@ -6,7 +7,6 @@ import Home from './pages/Home.jsx';
 import Blog100KB from './pages/Blog100KB.jsx';
 
 const AllTools = lazy(() => import('./pages/AllTools.jsx'));
-const CategoryPage = lazy(() => import('./pages/CategoryPage.jsx'));
 const ToolPage = lazy(() => import('./pages/ToolPage.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound.jsx'));
 const Legal = {

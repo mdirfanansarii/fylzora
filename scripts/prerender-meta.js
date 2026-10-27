@@ -37,10 +37,11 @@ function render(p, file404 = false) {
   const url = site + (p.path === '/' ? '/' : p.path);
   let h = tpl
     .replace(/<title>.*?<\/title>/, `<title>${esc(full)}</title>`)
-    .replace(/(<meta name="description" content=")[^"]*/, `$1${esc(p.desc)}`)
+    .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/s, `<meta name="description" content="${esc(p.desc)}" />`)
     .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(full)}`)
-    .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(p.desc)}`)
-    .replace('</head>', `<link rel="canonical" href="${file404 ? site + '/' : url}">\n<meta property="og:url" content="${url}">\n<meta name="robots" content="${p.index ? 'index, follow' : 'noindex, follow'}">\n</head>`)
+    .replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/s, `<meta property="og:description" content="${esc(p.desc)}" />`)
+    .replace(/<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/gi, '')
+   .replace('</head>', `<link rel="canonical" href="${file404 ? site + '/' : url}">\n<meta property="og:url" content="${url}">\n<meta name="robots" content="${p.index ? 'index, follow' : 'noindex, follow'}">\n</head>`)
 
     .replace(/<noscript>[\s\S]*?<\/noscript>/, `<noscript><h1>${esc(p.title || name)}</h1><p>${esc(p.desc)}</p><p>${name} needs JavaScript enabled, because its tools run inside your browser.</p></noscript>`);
   return h;

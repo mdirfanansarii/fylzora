@@ -4,6 +4,7 @@ import { StaticRouter } from 'react-router-dom';
 import { createServer } from 'vite';
 import fs from 'node:fs';
 import path from 'node:path';
+import { categories } from '../src/data/tools.js';
 
 const root = process.cwd();
 
@@ -22,6 +23,11 @@ const routes = [
       'index.html'
     ),
   },
+
+  ...Object.values(categories).map((category) => ({
+    location: `/${category.slug}`,
+    output: path.join(root, 'dist', category.slug, 'index.html'),
+  })),
 ];
 
 const vite = await createServer({
