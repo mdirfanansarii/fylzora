@@ -1131,3 +1131,9 @@ code { background: var(--surface); padding: .1rem .35rem; border-radius: 4px; wo
     transition: none;
   }
 }
+.site-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+}

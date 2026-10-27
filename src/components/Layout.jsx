@@ -26,7 +26,7 @@ export default function Layout() {
       <header className="site-header">
         <div className="wrap header-row">
           <Link to="/" className="brand" aria-label={`${siteConfig.name} home`}>
-            <Logo />
+            <img src="/fylzora-logo.png" alt="Fylzora logo" className="site-logo" />
             <span>{siteConfig.name}</span>
           </Link>
 
@@ -63,7 +63,14 @@ export default function Layout() {
       <footer className="site-footer">
         <div className="wrap footer-grid">
           <div>
-            <Link to="/" className="brand"><Logo size={24} /><span>{siteConfig.name}</span></Link>
+            <Link to="/" className="brand">
+              <img
+                src="/fylzora-logo.png"
+                alt="Fylzora logo"
+                className="site-logo"
+              />
+              <span>{siteConfig.name}</span>
+            </Link>
             <p className="muted small">{siteConfig.tagline} for images, PDF, Word and Excel files. Not affiliated with Adobe, Microsoft or Google.</p>
           </div>
           <div>
