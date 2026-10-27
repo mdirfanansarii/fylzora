@@ -5,6 +5,7 @@ import Layout from './components/Layout.jsx';
 import { bySlug, categories, categoryKeyBySlug } from './data/tools.js';
 import Home from './pages/Home.jsx';
 import Blog100KB from './pages/Blog100KB.jsx';
+import BlogJpgToWebP from './pages/BlogJpgToWebP.jsx';
 
 const AllTools = lazy(() => import('./pages/AllTools.jsx'));
 const ToolPage = lazy(() => import('./pages/ToolPage.jsx'));
@@ -43,7 +44,8 @@ export default function App() {
         <Route path="cookie-and-advertising" element={<Legal.Cookies />} />
         <Route path="faq" element={<Legal.Faq />} />
         <Route path="blog/how-to-reduce-image-to-100kb" element={<Blog100KB />} />
-    <Route path=":slug" element={<SlugRoute />} />
+	<Route path="blog/how-to-convert-jpg-to-webp-online" element={<BlogJpgToWebP />}/>
+        <Route path=":slug" element={<SlugRoute />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

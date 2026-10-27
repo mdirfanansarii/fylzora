@@ -26,6 +26,7 @@ const today = new Date().toISOString().slice(0, 10);
 
 const paths = [
   '/blog/how-to-reduce-image-to-100kb',
+  '/blog/how-to-convert-jpg-to-webp-online',
   '/',
   '/all-tools',
   // Category pages are noindex until at least one of their tools is live, so keep them out of the sitemap too.
