@@ -6,6 +6,7 @@ import { bySlug, categories, categoryKeyBySlug } from './data/tools.js';
 import Home from './pages/Home.jsx';
 import Blog100KB from './pages/Blog100KB.jsx';
 import BlogJpgToWebP from './pages/BlogJpgToWebP.jsx';
+import BlogMergePDF from './pages/BlogMergePDF.jsx';
 
 const AllTools = lazy(() => import('./pages/AllTools.jsx'));
 const ToolPage = lazy(() => import('./pages/ToolPage.jsx'));
@@ -45,6 +46,7 @@ export default function App() {
         <Route path="faq" element={<Legal.Faq />} />
         <Route path="blog/how-to-reduce-image-to-100kb" element={<Blog100KB />} />
 	<Route path="blog/how-to-convert-jpg-to-webp-online" element={<BlogJpgToWebP />}/>
+	<Route path="blog/how-to-merge-pdf-files-for-free" element={<BlogMergePDF />} />
         <Route path=":slug" element={<SlugRoute />} />
         <Route path="*" element={<NotFound />} />
       </Route>
