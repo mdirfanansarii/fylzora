@@ -26,7 +26,7 @@ export default function Layout() {
       <header className="site-header">
         <div className="wrap header-row">
           <Link to="/" className="brand" aria-label={`${siteConfig.name} home`}>
-            <img src="/fylzora-logo.png" alt="Fylzora logo" className="site-logo" />
+            <img src="/fylzora-logo.webp" alt="Fylzora logo" className="site-logo" />
             <span>{siteConfig.name}</span>
           </Link>
 
@@ -65,7 +65,7 @@ export default function Layout() {
           <div>
             <Link to="/" className="brand">
               <img
-                src="/fylzora-logo.png"
+                src="/fylzora-logo.webp"
                 alt="Fylzora logo"
                 className="site-logo"
               />
