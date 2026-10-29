@@ -1,3 +1,4 @@
+import ToolPage from './pages/ToolPage.jsx';
 import { lazy } from 'react';
 import CategoryPage from './pages/CategoryPage.jsx';
 import { Navigate, Route, Routes, useParams } from 'react-router-dom';
@@ -9,7 +10,6 @@ import BlogJpgToWebP from './pages/BlogJpgToWebP.jsx';
 import BlogMergePDF from './pages/BlogMergePDF.jsx';
 
 const AllTools = lazy(() => import('./pages/AllTools.jsx'));
-const ToolPage = lazy(() => import('./pages/ToolPage.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound.jsx'));
 const Legal = {
   About: lazy(() => import('./pages/Legal.jsx').then((m) => ({ default: m.About }))),

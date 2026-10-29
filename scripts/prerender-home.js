@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router-dom';
 import { createServer } from 'vite';
 import fs from 'node:fs';
 import path from 'node:path';
-import { categories } from '../src/data/tools.js';
+import { categories, tools } from '../src/data/tools.js';
 
 const root = process.cwd();
 
@@ -24,10 +24,19 @@ const routes = [
     ),
   },
 
+  // Prerender category pages
   ...Object.values(categories).map((category) => ({
     location: `/${category.slug}`,
     output: path.join(root, 'dist', category.slug, 'index.html'),
   })),
+
+  // Prerender all live tool pages
+  ...tools
+    .filter((tool) => tool.live)
+    .map((tool) => ({
+      location: `/${tool.slug}`,
+      output: path.join(root, 'dist', tool.slug, 'index.html'),
+    })),
 ];
 
 const vite = await createServer({
