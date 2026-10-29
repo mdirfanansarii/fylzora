@@ -7,13 +7,13 @@
 
 export const categories = {
   image: { slug: 'image-tools', name: 'Image Tools', short: 'Image', phase: 2,
-    blurb: 'Compress, convert, resize, crop and tidy up pictures.' },
+    blurb: 'Compress, resize, crop and convert images online for websites, sharing and everyday tasks.' },
   pdf: { slug: 'pdf-tools', name: 'PDF Tools', short: 'PDF', phase: 3,
-    blurb: 'Merge, split, compress, convert and annotate PDF files.' },
+    blurb: 'Merge, split, compress, convert and annotate PDF files online without installing software.' },
   word: { slug: 'word-tools', name: 'Word Tools', short: 'Word', phase: 4,
-    blurb: 'View, edit and convert DOCX documents.' },
+    blurb: 'View, edit and convert DOCX documents online using free browser-based tools.' },
   excel: { slug: 'excel-tools', name: 'Excel Tools', short: 'Excel', phase: 5,
-    blurb: 'View, edit, clean and convert spreadsheets.' },
+    blurb: 'View, edit, clean and convert spreadsheets online using free browser-based tools.' },
 };
 
 const t = (category, slug, name, description, extra = {}) =>
