@@ -22,7 +22,7 @@ const tpl = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 const pages = [
-  { path: '/blog/how-to-reduce-image-to-100kb', title: 'How to Reduce an Image to 100KB Online', desc: 'Learn how to reduce an image to 100KB online with compression, format selection, and quality settings. Get practical tips to keep images clear and lightweight.', index: true },
+  { path: '/blog/how-to-reduce-image-to-100kb', title: 'How to Reduce an Image to 100KB Online', desc: 'Learn how to compress JPG and PNG images online, reduce image size to around 100KB, choose WebP, and balance file size with image quality.', index: true },
   { path: '/blog/how-to-convert-jpg-to-webp-online', title: 'How to Convert JPG to WebP Online Free', desc: 'Learn how to convert JPG images to WebP online, understand the benefits of WebP, and optimize images for faster website loading.', index: true },
   { path: '/blog/how-to-merge-pdf-files-for-free', title: 'How to Merge PDF Files for Free Online', desc: 'Learn how to merge multiple PDF files into one PDF online for free. Follow simple steps to combine PDF documents in the order you choose.', index: true },
   { path: '/', title: '', desc: 'Use free online tools to compress images, manage PDFs, and work with Word and Excel files directly in your browser, with no sign-up required.', index: true },
