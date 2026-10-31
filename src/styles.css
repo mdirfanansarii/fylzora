@@ -154,8 +154,8 @@ main:focus { outline: none; }
 .btn { display: inline-block; padding: .55rem 1rem; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; }
 .btn:hover { border-color: var(--blue); color: var(--blue); }
 .btn[aria-pressed="true"] { background: var(--blue-soft); border-color: var(--blue); color: var(--blue); }
-.btn-primary { background: var(--blue); color: var(--blue-ink); border-color: var(--blue); }
-.btn-primary:hover { color: var(--blue-ink); filter: brightness(1.08); }
+.btn-primary { background: var(--blue); color: #ffffff !important; border-color: var(--blue); }
+.btn-primary:hover { color: #ffffff !important; filter: brightness(1.08); }
 .btn-row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-top: 1rem; }
 .tool-area { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem; }
 .drop { border: 2px dashed var(--blue); border-radius: 12px; background: var(--bg); text-align: center; padding: 2.5rem 1rem; }
