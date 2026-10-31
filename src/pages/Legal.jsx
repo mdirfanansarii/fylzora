@@ -37,7 +37,8 @@ export function About() {
 export function Contact() {
   return (
     <Doc title="Contact Us" path="/contact" description={`How to reach ${name} with questions, bug reports or privacy requests.`}>
-      <p>Email us at <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.</p>
+      <p>For general questions and feedback, email us at <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.</p>
+      <p>For technical help or tool-related problems, contact <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>.</p>
       <p>It helps to include the tool name, your browser and device, and the file type you were using. Please don’t attach private documents; a description of the problem is enough.</p>
     </Doc>
   );

@@ -83,7 +83,11 @@ export default function Layout() {
           </div>
           <div>
             <h2 className="foot-h">Company</h2>
-            <ul>{companyLinks.map((l) => <li key={l.to}><Link to={l.to}>{l.label}</Link></li>)}</ul>
+            <ul>
+             {companyLinks.map((l) => <li key={l.to}><Link to={l.to}>{l.label}</Link></li>)}
+             <li><a href={`mailto:${siteConfig.email}`}>Contact Email</a></li>
+             <li><a href={`mailto:${siteConfig.supportEmail}`}>Support Email</a></li>
+           </ul>
           </div>
           <div>
             <h2 className="foot-h">Legal</h2>
