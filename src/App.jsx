@@ -1,5 +1,15 @@
 import ToolPage from './pages/ToolPage.jsx';
 import { lazy } from 'react';
+import AllTools from './pages/AllTools.jsx';
+import {
+  About,
+  Contact,
+  Privacy,
+  Terms,
+  Disclaimer,
+  Cookies,
+  Faq,
+} from './pages/Legal.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
 import { Navigate, Route, Routes, useParams } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
@@ -10,17 +20,8 @@ import BlogJpgToWebP from './pages/BlogJpgToWebP.jsx';
 import BlogMergePDF from './pages/BlogMergePDF.jsx';
 import BlogImageQuality from './pages/BlogImageQuality.jsx';
 
-const AllTools = lazy(() => import('./pages/AllTools.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound.jsx'));
-const Legal = {
-  About: lazy(() => import('./pages/Legal.jsx').then((m) => ({ default: m.About }))),
-  Contact: lazy(() => import('./pages/Legal.jsx').then((m) => ({ default: m.Contact }))),
-  Privacy: lazy(() => import('./pages/Legal.jsx').then((m) => ({ default: m.Privacy }))),
-  Terms: lazy(() => import('./pages/Legal.jsx').then((m) => ({ default: m.Terms }))),
-  Disclaimer: lazy(() => import('./pages/Legal.jsx').then((m) => ({ default: m.Disclaimer }))),
-  Cookies: lazy(() => import('./pages/Legal.jsx').then((m) => ({ default: m.Cookies }))),
-  Faq: lazy(() => import('./pages/Legal.jsx').then((m) => ({ default: m.Faq }))),
-};
+
 
 // /:slug can be a tool (/image-compressor) or a category (/pdf-tools).
 function SlugRoute() {
@@ -38,13 +39,13 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="all-tools" element={<AllTools />} />
-        <Route path="about" element={<Legal.About />} />
-        <Route path="contact" element={<Legal.Contact />} />
-        <Route path="privacy-policy" element={<Legal.Privacy />} />
-        <Route path="terms-of-service" element={<Legal.Terms />} />
-        <Route path="disclaimer" element={<Legal.Disclaimer />} />
-        <Route path="cookie-and-advertising" element={<Legal.Cookies />} />
-        <Route path="faq" element={<Legal.Faq />} />
+        <Route path="about" element={<About />} />
+	<Route path="contact" element={<Contact />} />
+	<Route path="privacy-policy" element={<Privacy />} />
+	<Route path="terms-of-service" element={<Terms />} />
+	<Route path="disclaimer" element={<Disclaimer />} />
+	<Route path="cookie-and-advertising" element={<Cookies />} />
+	<Route path="faq" element={<Faq />} />
         <Route path="blog/how-to-reduce-image-to-100kb" element={<Blog100KB />} />
 	<Route path="blog/compress-image-without-losing-quality" element={<BlogImageQuality />} />
 	<Route path="blog/how-to-convert-jpg-to-webp-online" element={<BlogJpgToWebP />}/>

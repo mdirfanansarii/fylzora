@@ -71,19 +71,24 @@ export const toolFaqs = {
     ['Can I delete every page?', 'No. At least one page must remain in the PDF.']
   ],
   'pdf-page-numbers': [
-    ['Can I add page numbers to a PDF?', 'Yes. The tool adds page numbers to your PDF pages.'],
+    ['Can I add page numbers to a PDF?', 'Yes. The tool adds page numbers to every page of your PDF.'],
     ['Can I choose where page numbers appear?', 'Yes. You can place them at the bottom-left, bottom-centre or bottom-right.'],
-    ['Can I start numbering from a different number?', 'Yes. Set the starting number and optionally enable the Page X of Y format.']
+    ['Can I start numbering from a different number?', 'Yes. Set your preferred starting number and optionally enable the Page X of Y format.'],
+    ['What is the PDF upload size limit?', 'You can upload a PDF file up to 25 MB.']
   ],
   'pdf-watermark': [
-    ['Can I add a text watermark to a PDF?', 'Yes. Enter watermark text and apply it to the PDF pages.'],
-    ['Can I change watermark size and opacity?', 'Yes. You can adjust the text size and transparency.'],
-    ['Can I use a long watermark message?', 'The watermark text is limited to 40 characters.']
+    ['Can I add a text watermark to a PDF?', 'Yes. You can add a text watermark to every page of your PDF.'],
+    ['Can I change watermark size and opacity?', 'Yes. You can adjust the text size from 20 to 120 points and opacity from 5% to 100%.'],
+    ['Can I use a long watermark message?', 'Watermark text is limited to 40 characters.'],
+    ['Can I change the watermark angle?', 'No. The watermark is placed diagonally at a fixed 45-degree angle.'],
+    ['What is the PDF upload size limit?', 'You can upload a PDF file up to 25 MB.']
   ],
   'pdf-metadata': [
-    ['What PDF information can I check?', 'The tool can show details such as title, author, subject, keywords, creator, producer and dates.'],
-    ['Can I see the number of PDF pages?', 'Yes. The metadata view includes the page count and first-page dimensions.'],
-    ['Does it show whether a PDF is encrypted?', 'Yes. The metadata includes an encrypted status.']
+    ['What PDF information can I check?', 'You can view the title, author, subject, keywords, creator, producer, creation date and modification date.'],
+    ['Can I see the number of PDF pages?', 'Yes. The tool displays the total page count and the dimensions of the first page.'],
+    ['Does it show whether a PDF is encrypted?', 'Yes. The metadata includes an encrypted status.'],
+    ['Can I check the PDF file size?', 'Yes. The tool displays the uploaded PDF file size.'],
+    ['What is the PDF upload size limit?', 'You can upload a PDF file up to 25 MB.']
   ],
   'jpg-to-pdf': [
     ['Can I convert multiple images into one PDF?', 'Yes. You can select multiple supported images and create a PDF from them.'],
@@ -102,8 +107,10 @@ export const toolFaqs = {
   ],
   'pdf-editor': [
     ['Can I add text to a PDF?', 'Yes. You can add text, highlight content and draw shapes such as rectangles, ellipses and lines.'],
-    ['Can I edit or remove existing PDF text?', 'The editor supports limited editing of existing text and can cover areas with a white rectangle. In normal mode, the original text remains inside the PDF and may still be copied. This is not secure redaction. Use flatten mode to turn pages into images and remove the original selectable text.'],
-    ['What happens when I use flatten mode?', 'Flatten mode turns pages into images with edits included. The resulting text is no longer selectable or searchable.']
+    ['Can I edit or remove existing PDF text?', 'The editor supports limited editing of existing text and can cover areas with a white rectangle. In normal mode, the original text remains inside the PDF and may still be copied. This is not secure redaction. Use Flatten mode to turn pages into images and remove the original selectable text.'],
+    ['What happens when I use flatten mode?', 'Flatten mode turns pages into images with edits included. The resulting text is no longer selectable or searchable.'],
+    ['Can I edit rotated PDF pages?', 'No. Editing is disabled on rotated pages. Use PDF Page Organizer to rotate the page upright first.'],
+    ['Does the editor support Hindi text?', 'Normal mode has limited character support. Use Flatten mode to preserve Hindi and other scripts in your edited PDF.']
   ],
   'pdf-to-word': [
     ['Can I convert a PDF into an editable Word document?', 'Yes. The tool extracts selectable text and creates a DOCX file.'],
@@ -111,9 +118,11 @@ export const toolFaqs = {
     ['Will images, tables and fonts be preserved?', 'No. The conversion detects headings, paragraphs and bullet lists, but does not recreate images, tables, columns or exact fonts. The limit is 150 pages.']
   ],
   'pdf-password': [
-    ['How do I add a password to a PDF?', 'Select a PDF, enter a password of at least 6 characters, confirm it and choose Protect PDF.'],
-    ['Can I block printing and copying?', 'Yes. You can enable the option to restrict printing and copying in PDF viewers that respect these permissions.'],
-    ['Can I recover a forgotten PDF password?', 'No. The password cannot be recovered. Keep a safe copy of your password and original PDF.']
+    ['How do I add a password to a PDF?', 'Upload a PDF, enter a password of at least 6 characters, confirm it and select Protect PDF.'],
+    ['Can I block printing and copying?', 'Yes. Enable the restriction option. These restrictions work only in PDF viewers that respect PDF permissions.'],
+    ['Can I recover a forgotten PDF password?', 'No. The password cannot be recovered. Keep it safe and retain your original PDF.'],
+    ['What is the PDF upload size limit?', 'You can upload a PDF file up to 25 MB.'],
+    ['Does the tool verify password protection?', 'Yes. It checks that the generated PDF asks for a password before offering the download.']
   ],
 
   // WORD TOOLS
@@ -241,7 +250,7 @@ export const toolFaqs = {
   ],
   'spreadsheet-formatter': [
     ['What formatting changes can this tool make?', 'It can bold the header, freeze the first row and set automatic column widths.'],
-    ['Can it remove blank rows?', 'Yes. The formatter can remove blank rows and optionally completely empty columns.'],
+    ['Can it remove blank rows?', 'Yes. The formatter removes blank rows before creating the formatted workbook.'],
     ['Can it clean spaces and numbers?', 'Yes. Optional settings can trim repeated spaces and convert numeric text into numbers.']
   ],
   'excel-formula-helper': [

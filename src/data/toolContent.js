@@ -13,8 +13,8 @@ export const useCases = {
   'pdf-page-extractor': 'Extract selected pages from PDF files online for free with Fylzora PDF Page Extractor. Enter individual page numbers or ranges to collect the pages you need into one new PDF document. For example, extract pages 1-3 and 7-9 from a longer report. Useful for saving selected certificates, invoices or contract pages. Upload a PDF up to 25 MB.',
   'pdf-organizer': 'Organise PDF pages online for free with Fylzora PDF Page Organizer. Move pages up or down to change their order, rotate individual pages in 90-degree steps and remove unwanted pages. Preview the page list and keep at least one page before saving your organised PDF. Useful for fixing scanned documents and arranging reports. Upload a PDF up to 25 MB.',
   'pdf-page-numbers': 'Add page numbers to PDF files online for free with Fylzora PDF Page Number Tool. Choose bottom-left, bottom-centre or bottom-right placement and set your preferred starting number. You can also use the Page X of Y format to show the current page and total page count. Useful for reports, assignments and documents prepared for printing. Upload a PDF up to 25 MB.',
-  'pdf-watermark': 'Add a text watermark to PDF files online for free with Fylzora PDF Watermark Tool. Enter a message such as DRAFT or CONFIDENTIAL and apply it across the pages of your document. Adjust the watermark text size from 20 to 120 points and set its opacity. The text is limited to 40 characters. Preview and check your watermarked PDF before sharing.',
-  'pdf-metadata': 'View PDF metadata online for free with Fylzora PDF Metadata Viewer. Check document properties such as title, author, subject, keywords, creator, producer, creation date and modification date. You can also view the page count, first-page dimensions and encrypted status. Useful for checking PDF information before sharing or publishing a document. Upload a PDF up to 25 MB.',
+  'pdf-watermark': 'Add a diagonal text watermark to PDF files online for free with Fylzora PDF Watermark Tool. Enter a message such as DRAFT or CONFIDENTIAL and apply it to every page. Adjust text size from 20 to 120 points and opacity from 5% to 100%. The watermark is placed at a fixed 45-degree angle, and text is limited to 40 characters. Upload a PDF up to 25 MB.',
+  'pdf-metadata': 'View PDF metadata online for free with Fylzora PDF Metadata Viewer. Check document properties such as title, author, subject, keywords, creator, producer, creation date and modification date. View the page count, first-page dimensions, file size and encrypted status. The tool reads PDF information in your browser without uploading the file to a server. Upload a PDF up to 25 MB. Password-protected or damaged PDFs may not open.',
   'jpg-to-pdf': 'Convert images to PDF online for free with Fylzora JPG to PDF Converter. Combine multiple JPG, PNG and WebP images into a single PDF document, with each image placed on its own page. Arrange the images in your preferred order before creating the PDF. Useful for combining photos, scanned documents, notes and certificates. Add up to 30 images in one process.',
   'pdf-to-jpg': 'Convert PDF pages to JPG or PNG images online for free with Fylzora PDF to JPG & PNG Converter. Choose JPG or PNG output and select standard, high or very high rendering quality. Download the converted pages as individual images. The tool processes up to the first 60 pages of a PDF. Useful for sharing document pages as pictures, presentations and online posts.',
   'docx-to-pdf': 'Convert Word DOCX documents to PDF online for free with Fylzora DOCX to PDF Converter. Create a text-only PDF copy of your Word document for sharing, reading and printing. The converter extracts document text, but images, tables, fonts, colours and complex page layouts are not preserved. Upload a DOCX file and download the generated PDF without installing extra software.',
@@ -22,7 +22,7 @@ export const useCases = {
   'txt-to-docx': 'Turn plain notes into a Word document you can format later.',
   'docx-to-html': 'Convert Word DOCX documents to HTML online for free with Fylzora DOCX to HTML Converter. Turn Word document content into an HTML file that you can review in the browser and use on websites, blogs or content management systems. The converter preserves supported document structure and basic formatting, but complex layouts and some Word features may change. Upload a DOCX file and download the generated HTML without installing extra software.',
   'docx-to-markdown': 'Convert Word DOCX documents to Markdown online for free with Fylzora DOCX to Markdown Converter. Extract document content into a Markdown file that you can use in GitHub, blogs, documentation and compatible note-taking apps. Preview the converted Markdown text before downloading your .md file. Complex layouts and some Word formatting may not be preserved. No extra software installation is needed.',
-  'docx-compressor': 'Reduce a Word file that is large because of photos inside it.',
+  'docx-compressor': 'Compress DOCX Word documents online for free with Fylzora DOCX Compressor. Reduce file size by optimising supported JPEG images inside the document. The tool does not compress PNG images or document text, so files without supported JPEG images may show little or no size reduction. Upload a DOCX file, check the compressed size and download it if the result is smaller.',
   'docx-editor': 'Edit Word DOCX documents online for free with Fylzora DOCX Editor. Start with a blank document or upload an existing DOCX file to make basic text changes. Use bold, italic, underline, headings, paragraphs, bullet lists and numbered lists. Save your edited document as a DOCX file. Images, tables and complex layouts from the original document are not preserved. No extra software installation is needed.',
   'docx-viewer': 'View Word DOCX documents online for free with Fylzora DOCX Viewer. Open and read Word documents directly in your browser without installing Microsoft Word. The tool converts supported document content into a readable preview while keeping basic document structure. Complex formatting and layouts may look different from the original file. This is a read-only viewer, so you cannot edit the document here.',
   'word-counter': 'Count words and characters online for free with Fylzora Word Counter. Get instant counts for words, characters with and without spaces, sentences and paragraphs as you type or paste text. Estimate document length using 500 words per page and reading time using 200 words per minute. Useful for essays, assignments, articles, blog posts and other writing tasks. No signup or extra software installation is needed.',
@@ -32,16 +32,16 @@ export const useCases = {
   'csv-to-xlsx': 'Convert CSV files to Excel XLSX workbooks online for free with Fylzora CSV to Excel Converter. Turn tabular CSV data into an Excel spreadsheet that you can open and work with in compatible spreadsheet software. CSV files contain one table, so the converted workbook starts with a single worksheet. The original CSV file remains unchanged, and a new XLSX file is created for download.',
   'xlsx-to-pdf': 'Convert Excel XLSX workbooks to PDF files online for free with Fylzora Excel to PDF Converter. Create a read-only PDF version of your spreadsheet data for sharing, reviewing and printing. The converter includes worksheet cell values and places wide tables across additional PDF pages when needed. Excel colours, borders and fonts are not preserved, and some unsupported characters may appear as question marks in the PDF.',
   'xlsx-to-json': 'Convert Excel XLSX workbooks to JSON online for free with Fylzora Excel to JSON Converter. Turn spreadsheet rows into structured JSON data for websites, APIs, app development and data processing. The first row of each worksheet is used for JSON field names. Blank headers receive generated column names, and duplicate headers receive unique suffixes. Workbooks with multiple worksheets are exported as a JSON object using worksheet names.',
-  'json-to-xlsx': 'Convert JSON arrays into an Excel XLSX workbook. Organise arrays of objects into columns using their keys, or convert arrays of arrays into spreadsheet rows. Useful for viewing API responses, app exports and structured data in Excel.',
+  'json-to-xlsx': 'Convert JSON files to Excel XLSX workbooks online for free with Fylzora JSON to XLSX Converter. Convert arrays of objects into spreadsheet columns using their keys, or turn arrays of arrays into spreadsheet rows. Nested objects and arrays are stored as JSON text inside cells. The input must be a JSON array; arrays without object keys cannot be converted. Useful for organising API responses, app exports and structured data in Excel.',
   'excel-viewer': 'View Excel XLSX files online for free with Fylzora Excel Viewer. Upload a workbook and browse its worksheets directly in your browser without installing Microsoft Excel. Preview up to 200 rows and 30 columns at a time. Older XLS files are not supported; save them as XLSX before uploading.',
   'excel-editor': 'Edit Excel files online with Fylzora Excel Editor. Upload an XLSX workbook, update cell values directly in the spreadsheet grid and save your edited file. Preview up to 200 rows and 30 columns at a time. The tool focuses on cell values; formulas are saved as their last calculated results, and original formatting may not be retained.',
-  'excel-merger': 'Merge multiple Excel XLSX, CSV and JSON files online with Fylzora Excel Merger. Combine worksheets from different files into one Excel workbook, or stack the first worksheet from each file into a single sheet. Choose to skip header rows from later files when stacking data. Merge up to 20 files in one process, without installing extra software.',
+  'excel-merger': 'Merge multiple Excel XLSX and CSV files online for free with Fylzora Excel File Merger. Combine all worksheets into one workbook, or stack the first worksheet from each file into a single sheet. Optionally skip header rows from later files when stacking. Merge up to 20 files, with a maximum size of 20 MB per file. Download the merged result as an XLSX workbook.',
   'excel-sheet-exporter': 'Export individual worksheets from an Excel workbook online. Choose XLSX to save each sheet as a separate Excel workbook, or CSV to create separate files containing tabular data. Useful for sharing selected sheets, organising reports and working with spreadsheet data separately.',
   'csv-editor': 'Edit CSV files online with Fylzora CSV Editor. Upload a CSV file, update cell values directly in the spreadsheet grid and save your edited data as CSV or XLSX. The tool uses CSV parsing to handle standard commas and quotation marks correctly. Preview up to 200 rows and 30 columns while working with your data, without installing extra software.',
   'duplicate-row-finder': 'Find and remove duplicate rows from Excel and spreadsheet files online with Fylzora Duplicate Row Finder. Identify repeated records in customer lists, orders, reports and other tabular data. Choose whether to treat the first row as a header and use the optional case-insensitive setting to ignore uppercase and lowercase differences. The tool keeps the first matching row and removes later duplicates.',
-  'blank-row-remover': 'Remove blank rows from Excel and spreadsheet files online. Clean up empty rows left by data exports, reports and copy-paste operations. You can also remove completely empty columns with an optional setting. Review the cleaned spreadsheet in the grid before downloading.',
-  'column-row-manager': 'Manage spreadsheet rows and columns online with Fylzora Column Row Manager. Add or delete rows and columns, move columns left or right, and edit cell values directly in the spreadsheet grid. Useful for organising Excel data, updating tables and adjusting spreadsheet layouts without extra software.',
-  'spreadsheet-formatter': 'Format spreadsheet data online with Fylzora Spreadsheet Formatter. Clean up extra spaces, convert numeric text into numbers, remove blank rows, bold the header row, freeze the first row and automatically adjust column widths. Make exported Excel data easier to read and organise without installing extra software.',
+  'blank-row-remover': 'Remove blank rows from Excel XLSX and CSV files online for free with Fylzora Blank Row Remover. Remove rows that contain only empty cells or spaces. Optionally remove completely empty columns too. Review the cleaned spreadsheet and save it as XLSX or CSV. Upload files up to 20 MB.',
+  'column-row-manager': 'Manage Excel XLSX and CSV spreadsheet rows and columns online with Fylzora Column & Row Manager. Add or delete rows and columns, move columns left or right, and edit cell values directly in the grid. Organise tables and update spreadsheet data without installing extra software. Upload files up to 20 MB.',
+  'spreadsheet-formatter': 'Format Excel XLSX and CSV spreadsheet data online with Fylzora Spreadsheet Formatter. Remove blank rows, trim extra spaces, convert numeric text into numbers, bold the header row, freeze the first row and automatically adjust column widths. Download the formatted result as an XLSX workbook. Upload files up to 20 MB.',
   'excel-formula-helper': 'Find common Excel formulas with searchable examples and simple explanations. Explore functions for calculations, conditions, lookups, text editing, dates and data filtering. Each formula includes a sample syntax and a practical use case to help you choose the right function for your spreadsheet.',
 };
 
@@ -50,7 +50,7 @@ Object.assign(useCases, {
   'pdf-compressor': 'Compress PDF files online for free with Fylzora PDF Compressor. Choose image compression to optimise supported embedded JPEG images while keeping text and vector graphics selectable. Alternatively, use maximum compression to convert PDF pages into JPEG images and reduce file size. Choose high, balanced or strong compression. Maximum compression makes text non-selectable and non-searchable. Upload a PDF up to 25 MB.',
   'pdf-editor': 'Edit PDF files online for free with Fylzora PDF Editor. Make basic changes to supported existing text, cover unwanted areas with white rectangles, add new text, highlight content and draw shapes or lines. In normal mode, white rectangles only hide original content; the underlying text may still be copied, so this is not secure redaction. Flatten mode turns pages into images, making text non-selectable and non-searchable.',
   'pdf-to-word': 'Convert PDF to Word online for free with Fylzora PDF to Word Converter. Extract selectable text from a PDF and create an editable DOCX document. The tool can detect headings, paragraphs and bullet lists, but does not use OCR for scanned pages. Images, tables, columns and exact fonts are not recreated. Supports PDFs up to 150 pages.',
-  'pdf-password': 'Protect PDF files with a password online using Fylzora PDF Password Protection. Set a password of at least 6 characters and confirm it before creating the protected PDF. Optionally restrict printing and copying in PDF viewers that respect these permissions. Keep your password safe because a forgotten password cannot be recovered. Upload a PDF up to 25 MB.',
+  'pdf-password': 'Protect PDF files online with Fylzora PDF Password Protection. Upload a PDF up to 25 MB, set and confirm a password of at least 6 characters, and create an encrypted PDF. Optionally restrict printing and copying in PDF viewers that respect these permissions. The tool checks password protection before offering the download. A forgotten password cannot be recovered. The file is processed in your browser.',
 });
 
 export const categoryTips = {
@@ -157,7 +157,7 @@ export const toolSeoContent = {
     ]
   },
   'pdf-watermark': {
-    intro: 'Add a text watermark to PDF files online for free with Fylzora PDF Watermark Tool. Add messages such as DRAFT or CONFIDENTIAL to your document. Adjust text size from 20 to 120 points and opacity from 5% to 100%. Watermark text is limited to 40 characters.',
+    intro: 'Add a diagonal text watermark to every page of your PDF. Enter up to 40 characters, choose a text size from 20 to 120 points and adjust opacity from 5% to 100%. The watermark is placed at a fixed 45-degree angle. Upload a PDF up to 25 MB.',
     steps: [
       'Upload your PDF file.',
       'Enter your watermark text and adjust its size and opacity.',
@@ -165,7 +165,7 @@ export const toolSeoContent = {
     ]
   },
   'pdf-metadata': {
-    intro: 'View PDF metadata online for free with Fylzora PDF Metadata Viewer. Check the title, author, subject, keywords, creator, producer, creation date and modification date. You can also inspect page count, first-page dimensions, file size and encrypted status.',
+    intro: 'View PDF metadata online with Fylzora. Check the title, author, subject, keywords, creator, producer, creation date and modification date. You can also inspect page count, first-page dimensions, file size and encrypted status. The file is processed in your browser. Upload a PDF up to 25 MB. Password-protected or damaged PDFs may not open.',
     steps: [
       'Upload your PDF file.',
       'Wait while the tool reads its document properties.',
@@ -213,7 +213,7 @@ export const toolSeoContent = {
     ]
   },
   'pdf-password': {
-    intro: 'Protect PDF files with a password online using Fylzora PDF Password Protection. Set and confirm a password of at least 6 characters before creating the protected PDF. You can optionally restrict printing and copying in PDF viewers that respect these permissions. A forgotten password cannot be recovered.',
+    intro: 'Protect a PDF with a password of at least 6 characters. Confirm your password, then optionally restrict printing and copying in PDF viewers that respect these permissions. The tool checks the generated file before download. Keep your password safe because it cannot be recovered. Upload a PDF up to 25 MB.',
     steps: [
       'Upload your PDF file.',
       'Enter a password of at least 6 characters and confirm it.',
@@ -318,7 +318,7 @@ export const toolSeoContent = {
     ]
   },
   'column-row-manager': {
-    intro: 'Manage spreadsheet rows and columns online for free with Fylzora Column and Row Manager. Add or delete rows and columns, and move columns left or right to organise your data. Save the updated spreadsheet as XLSX or CSV.',
+    intro: 'Manage spreadsheet rows and columns online for free with Fylzora Column & Row Manager. Add or delete rows and columns, move columns left or right, and edit cell values directly in the spreadsheet grid. Save the updated spreadsheet as XLSX or CSV.',
     steps: [
       'Upload your XLSX or CSV file.',
       'Add or delete rows and columns, or change column order.',
@@ -326,7 +326,7 @@ export const toolSeoContent = {
     ]
   },
   'spreadsheet-formatter': {
-    intro: 'Format Excel spreadsheets online for free with Fylzora Spreadsheet Formatter. Clean text spaces, convert number-like text into numbers and remove blank rows. The formatter also applies a bold header, freezes the first row and adjusts column widths in the output workbook.',
+    intro: 'Format Excel spreadsheets online for free with Fylzora Spreadsheet Formatter. Remove blank rows, clean extra spaces, convert numeric text into numbers, bold the header row, freeze the first row and automatically adjust column widths. Download the formatted result as an XLSX workbook.',
     steps: [
       'Upload your XLSX or CSV file.',
       'Choose whether to trim extra spaces and convert numbers stored as text.',
@@ -334,7 +334,7 @@ export const toolSeoContent = {
     ]
   },
   'excel-formula-helper': {
-    intro: 'Explore common Excel formulas online for free with Fylzora Excel Formula Helper. Search formulas for calculations, conditions, lookups, text, dates and data filtering. Each entry includes a formula example, a simple explanation and a practical use case.',
+    intro: 'Explore common Excel formulas online for free with Fylzora Excel Formula Helper. Search 20 formula entries covering calculations, conditions, lookups, text, dates and data filtering. Each entry includes sample syntax, a plain-language explanation and a practical use case. Some newer functions require Excel 2021 or Microsoft 365.',
     steps: [
       'Open the Excel Formula Helper.',
       'Search by a formula name or keyword such as SUM, IF, COUNT or LOOKUP.',

@@ -13,6 +13,24 @@ const routes = [
     location: '/',
     output: path.join(root, 'dist', 'index.html'),
   },
+ 
+  {
+    location: '/all-tools',
+    output: path.join(root, 'dist', 'all-tools', 'index.html'),
+  },
+    ...[
+      '/about',
+      '/contact',
+      '/privacy-policy',
+      '/terms-of-service',
+      '/disclaimer',
+      '/cookie-and-advertising',
+      '/faq',
+    ].map((location) => ({
+    location,
+    output: path.join(root, 'dist', location.slice(1), 'index.html'),
+  })),
+
   {
     location: '/blog/how-to-reduce-image-to-100kb',
     output: path.join(
