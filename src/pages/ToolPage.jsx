@@ -5,7 +5,8 @@ import { toolComponents } from '../tools/components.js';
 import { useSeo } from '../hooks/useSeo.js';
 import AdSlot from '../components/AdSlot.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
-import { categoryTips, useCases } from '../data/toolContent.js';
+import { categoryTips, useCases, toolSeoContent } from '../data/toolContent.js';
+import { toolFaqs } from '../data/toolFaqs.js';
 import ToolList from '../components/ToolList.jsx';
 
 export default function ToolPage({ tool }) {
@@ -26,13 +27,15 @@ export default function ToolPage({ tool }) {
   });
 
   const related = relatedTools(tool);
+  const seoContent = toolSeoContent[tool.slug];
+  const faqs = toolFaqs[tool.slug] || [];
 
   return (
     <div className="wrap page tool-page">
       <Breadcrumbs items={crumbs} />
       <h1>{tool.name}</h1>
       <p className="lead">{tool.description}</p>
-
+     
       {Live ? (
         // The tool UI. No ads inside or directly next to this block.
         <section className="tool-area" aria-label={`${tool.name} workspace`}>
@@ -62,7 +65,31 @@ export default function ToolPage({ tool }) {
           <p className="muted">Your file is processed by your browser on your own device and is not uploaded. Files can be up to 25 MB each. Very large files may fail on devices with little memory.</p>
         </section>
       )}
+      {seoContent && (
+        <section className="prose" aria-labelledby="seo-intro">
+        <h2 id="seo-intro">About {tool.name}</h2>
+        <p>{seoContent.intro}</p>
 
+        <h2>How to {tool.name.toLowerCase()}</h2>
+        <ol className="plain-list">
+        {seoContent.steps.map((step) => (
+                <li key={step}>{step}</li>
+                ))}
+        </ol>
+
+                </section>
+        )}
+      {Live && faqs.length > 0 && (
+  	<section className="prose" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        {faqs.map(([question, answer]) => (
+      	  <details className="faq" key={question}>
+          <summary>{question}</summary>
+          <p>{answer}</p>
+          </details>
+        ))}
+  	</section>
+      )}
       {Live && useCases[tool.slug] && (
         <section aria-labelledby="use-h">
           <h2 id="use-h">When to use it</h2>

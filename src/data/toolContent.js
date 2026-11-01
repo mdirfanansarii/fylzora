@@ -59,3 +59,47 @@ export const categoryTips = {
   word: ['Only .docx files are supported. Re-save older .doc files as .docx first.', 'Conversions keep text and basic structure; complex layouts, tables and fonts can change.'],
   excel: ['Only .xlsx and .csv files are supported. Re-save older .xls files as .xlsx first.', 'Saved files contain values, not formulas, formatting or charts.', 'CSV can’t store several sheets, formulas or colours.'],
 };
+export const toolSeoContent = {
+  'image-checker': {
+    intro: 'Check image dimensions, file size and actual image format online for free. Fylzora Image Checker helps you inspect JPG, PNG, WebP, GIF and BMP images before uploading them to websites, forms or applications.',
+    steps: [
+      'Select an image from your device or drag it into the upload area.',
+      'View its actual format, dimensions and file size.',
+      'Check the details before uploading or sharing your image.'
+    ],
+    faqs: [
+      ['How can I check image size online?', 'Upload your image to the Image Checker. It displays the file size and image dimensions.'],
+      ['Which image formats are supported?', 'The checker supports JPG, PNG, WebP, GIF and BMP images.'],
+      ['Can I check image dimensions in pixels?', 'Yes. You can see the image width and height in pixels.'],
+      ['Is my image uploaded to a server?', 'No. Image checking happens in your browser on your device.']
+    ]
+  },
+  'image-compressor': {
+    intro: 'Compress images online for free and reduce photo file size for websites, email attachments, online forms and job applications. Use Fylzora to make images smaller while keeping their quality as clear as possible.',
+    steps: [
+      'Select the image you want to compress.',
+      'Choose the available compression settings.',
+      'Check the compressed image and download it.'
+    ],
+    faqs: [
+      ['How can I reduce a photo to 100 KB?', 'Upload your photo, adjust the available compression settings and check the output file size. Repeat if needed.'],
+      ['Does image compression reduce quality?', 'It can. Lower file sizes may reduce image quality, so check the result before downloading.'],
+      ['Which image formats can I compress?', 'Supported formats depend on the tool options. Check the upload area for accepted formats.'],
+      ['Is this image compressor free?', 'Yes. You can use the online image compressor for free without creating an account.']
+    ]
+  },
+  'txt-to-docx': {
+    intro: 'Convert TXT files to DOCX online for free. Turn plain text notes, drafts and other text files into editable Microsoft Word-compatible documents without installing extra software.',
+    steps: [
+      'Choose a TXT file from your device.',
+      'Start the TXT to DOCX conversion.',
+      'Download the generated DOCX document.'
+    ],
+    faqs: [
+      ['How do I convert TXT to DOCX?', 'Select your TXT file, run the conversion and download the DOCX document.'],
+      ['Can I edit the converted DOCX file?', 'Yes. You can open and edit the downloaded DOCX file in Microsoft Word or another compatible editor.'],
+      ['Does TXT support images and formatting?', 'Plain TXT files contain text only, so the conversion cannot restore images or formatting that were not in the original file.'],
+      ['Is TXT to DOCX conversion free?', 'Yes. You can use this converter online for free.']
+    ]
+  }
+};
