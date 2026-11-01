@@ -3,7 +3,10 @@ export const toolFaqs = {
   'image-compressor': [
     ['How can I reduce an image file size?', 'Choose an image, adjust the compression settings and check the resulting file size before downloading.'],
     ['Will compression reduce image quality?', 'It can. Lower compression quality may make the image smaller but less clear. Always preview the result.'],
-    ['Which image formats are supported?', 'The image tools support JPEG, PNG and WebP for normal image processing.']
+    ['Which image formats are supported?', 'The image tools support JPEG, PNG and WebP for normal image processing.'],
+    ['How can I reduce a picture to 100KB?', 'Choose your image and adjust the compression settings. Try lower quality settings until the file size is close to or below 100KB.'],
+    ['How can I make a photo smaller than 100KB?', 'Compress the photo and check its output size. If it is still too large, try reducing its dimensions or compression quality.'],
+    ['Can I compress an image to exactly 100KB?', 'The final file size depends on the image and compression settings. Check the output size after compression.']
   ],
   'multiple-image-compressor': [
     ['Can I compress multiple images together?', 'Yes. You can select multiple images and process them in one session.'],
