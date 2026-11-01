@@ -1,31 +1,18 @@
-import { useEffect } from 'react';
+import { useSeo } from '../hooks/useSeo.js';
 import { Link } from 'react-router-dom';
 
 export default function BlogJpgToWebP() {
-  useEffect(() => {
-    const title = 'How to Convert JPG to WebP Online Free | Fylzora';
-    const description =
-      'Learn how to convert JPG images to WebP online for free. Follow simple steps to convert images and optimize them for websites.';
-
-    document.title = title;
-
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-    meta.content = description;
-
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.rel = 'canonical';
-      document.head.appendChild(canonical);
-    }
-    canonical.href =
-      'https://www.fylzora.online/blog/how-to-convert-jpg-to-webp-online';
-  }, []);
+    useSeo({
+    title: 'How to Convert JPG to WebP Online for Free',
+    description:
+      'Learn how to convert JPG images to WebP online. Follow simple steps, understand WebP benefits and create smaller images for websites.',
+    path: '/blog/how-to-convert-jpg-to-webp-online',
+    breadcrumbs: [
+      { name: 'Home', to: '/' },
+      { name: 'Image Tools', to: '/image-tools' },
+      { name: 'JPG to WebP Guide', to: '/blog/how-to-convert-jpg-to-webp-online' },
+    ],
+  });
 
   return (
     <main className="wrap page prose">
@@ -55,22 +42,16 @@ export default function BlogJpgToWebP() {
         <h2>How to Convert JPG to WebP Online</h2>
         <ol>
           <li>
-            Open the <Link to="/image-tools">Fylzora Image Tools</Link> page.
+            Open the <Link to="/image-converter">Fylzora Image Converter</Link> tool.
           </li>
-          <li>
-            Find a JPG-to-WebP conversion tool, if available.
-          </li>
-          <li>Upload or select your JPG image.</li>
-          <li>Choose WebP as the output format, if the tool offers that option.</li>
-          <li>Start the conversion and wait for it to finish.</li>
-          <li>Download the converted WebP image.</li>
+          <li>Upload your JPG image.</li>
+          <li>Select WebP as the output format.</li>
+          <li>Start the conversion.</li>
+          <li>Preview the converted image.</li>
+          <li>Download your WebP image.</li>
         </ol>
 
-        <p>
-          Tool availability may change. If JPG-to-WebP conversion is not
-          currently available on Fylzora, use another reputable converter
-          until the tool is added.
-        </p>
+
 
         <h2>Why Convert JPG to WebP?</h2>
         <ul>

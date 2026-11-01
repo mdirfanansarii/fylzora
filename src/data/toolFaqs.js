@@ -102,7 +102,7 @@ export const toolFaqs = {
   ],
   'pdf-editor': [
     ['Can I add text to a PDF?', 'Yes. You can add text, highlight content and draw shapes such as rectangles, ellipses and lines.'],
-    ['Can I edit or remove existing PDF text?', 'The editor supports limited editing of existing text and can cover areas with a white rectangle. Results depend on the PDF text layout.'],
+    ['Can I edit or remove existing PDF text?', 'The editor supports limited editing of existing text and can cover areas with a white rectangle. In normal mode, the original text remains inside the PDF and may still be copied. This is not secure redaction. Use flatten mode to turn pages into images and remove the original selectable text.'],
     ['What happens when I use flatten mode?', 'Flatten mode turns pages into images with edits included. The resulting text is no longer selectable or searchable.']
   ],
   'pdf-to-word': [

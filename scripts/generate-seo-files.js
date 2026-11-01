@@ -28,6 +28,7 @@ const paths = [
   '/blog/how-to-reduce-image-to-100kb',
   '/blog/how-to-convert-jpg-to-webp-online',
   '/blog/how-to-merge-pdf-files-for-free',
+  '/blog/compress-image-without-losing-quality',
   '/',
   '/all-tools',
   // Category pages are noindex until at least one of their tools is live, so keep them out of the sitemap too.

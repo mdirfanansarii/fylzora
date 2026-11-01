@@ -1,40 +1,24 @@
-import { useEffect } from 'react';
+import { useSeo } from '../hooks/useSeo.js';
 import { Link } from 'react-router-dom';
 
 export default function BlogMergePDF() {
-  useEffect(() => {
-    document.title = 'How to Merge PDF Files for Free Online | Fylzora';
-
-    const description =
-      'Learn how to merge multiple PDF files into one PDF online for free. Follow simple steps to combine PDF documents in the order you choose.';
-
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-    meta.content = description;
-
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.rel = 'canonical';
-      document.head.appendChild(canonical);
-    }
-    canonical.href =
-      'https://www.fylzora.online/blog/how-to-merge-pdf-files-for-free';
-
-    return () => {
-      document.title = 'Fylzora – Free Online File Tools';
-    };
-  }, []);
+    useSeo({
+    title: 'How to Merge PDF Files Online for Free',
+    description:
+      'Learn how to combine multiple PDF files into one document online. Follow simple steps to merge PDFs in your chosen order.',
+    path: '/blog/how-to-merge-pdf-files-for-free',
+    breadcrumbs: [
+      { name: 'Home', to: '/' },
+      { name: 'PDF Tools', to: '/pdf-tools' },
+      { name: 'Merge PDF Guide', to: '/blog/how-to-merge-pdf-files-for-free' },
+    ],
+  });
 
   return (
     <main className="wrap page prose">
       <article>
         <p>
-          <Link to="/">Home</Link> / <Link to="/all-tools">All Tools</Link> /
+          <Link to="/">Home</Link> / <Link to="/pdf-tools">PDF Tools</Link> /
           Merge PDF Files
         </p>
 
@@ -89,8 +73,8 @@ export default function BlogMergePDF() {
 
         <h3>Can I combine more than two PDF files?</h3>
         <p>
-          The number of files you can combine depends on the tool's supported
-          limits. Check the PDF Merger page for current restrictions.
+          Fylzora PDF Merger supports up to 30 PDF files. Each file can be
+          up to 25 MB. Check the tool page for the latest limits.
         </p>
 
         <h3>Will merging PDFs change their contents?</h3>

@@ -51,9 +51,9 @@ const rawTools = [
 
   // ---- Word (Phase 4) ----
   t('word', 'docx-to-pdf', 'DOCX to PDF Converter', 'Convert a Word document to PDF.', { alsoIn: ['pdf'],
-    notes: ['Fonts, tables and special formatting may look slightly different from Microsoft Word.'] }),
+    notes: ['This converter creates a text-only PDF. Images, table structure, fonts, colours and complex layouts are not preserved.'] }),
   t('word', 'docx-to-txt', 'DOCX to TXT Converter', 'Strip a Word document down to plain text.'),
-  t('word', 'txt-to-docx', 'TXT to DOCX Converter', 'Turn a plain text file into a Word document.'),
+  t('word', 'txt-to-docx', 'TXT to DOCX Converter', 'Create a Word document from a TXT file or text you type or paste.'),
   t('word', 'docx-to-html', 'DOCX to HTML Converter', 'Convert a Word document into clean HTML.'),
   t('word', 'docx-to-markdown', 'DOCX to Markdown Converter', 'Convert a Word document into Markdown.'),
   t('word', 'docx-compressor', 'DOCX Compressor', 'Shrink a Word file by optimising the images inside it.',
@@ -61,7 +61,7 @@ const rawTools = [
   t('word', 'docx-editor', 'DOCX Editor', 'Write and edit a document in a simple rich-text editor, then save it as DOCX.',
     { notes: ['Only .docx is supported. Older .doc files must be re-saved as .docx first.'] }),
   t('word', 'docx-viewer', 'DOCX Viewer', 'Open and read a Word document without Word installed.'),
-  t('word', 'word-counter', 'Document Page & Word Counter', 'Count words, characters and estimated pages.'),
+  t('word', 'word-counter', 'Word Counter', 'Count words, characters and estimated pages.'),
   t('word', 'document-text-extractor', 'Document Text Extractor', 'Copy all the text out of a document.'),
   t('word', 'document-formatter', 'Document Formatter', 'Clean up spacing, line breaks and basic formatting.'),
 

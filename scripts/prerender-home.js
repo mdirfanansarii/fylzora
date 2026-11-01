@@ -23,6 +23,18 @@ const routes = [
       'index.html'
     ),
   },
+    {
+    location: '/blog/how-to-convert-jpg-to-webp-online',
+    output: path.join(root, 'dist', 'blog', 'how-to-convert-jpg-to-webp-online', 'index.html'),
+  },
+  {
+    location: '/blog/how-to-merge-pdf-files-for-free',
+    output: path.join(root, 'dist', 'blog', 'how-to-merge-pdf-files-for-free', 'index.html'),
+  },
+  {
+    location: '/blog/compress-image-without-losing-quality',
+    output: path.join(root, 'dist', 'blog', 'compress-image-without-losing-quality', 'index.html'),
+  },
 
   // Prerender category pages
   ...Object.values(categories).map((category) => ({

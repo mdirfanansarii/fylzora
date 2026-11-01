@@ -8,6 +8,7 @@ import Home from './pages/Home.jsx';
 import Blog100KB from './pages/Blog100KB.jsx';
 import BlogJpgToWebP from './pages/BlogJpgToWebP.jsx';
 import BlogMergePDF from './pages/BlogMergePDF.jsx';
+import BlogImageQuality from './pages/BlogImageQuality.jsx';
 
 const AllTools = lazy(() => import('./pages/AllTools.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound.jsx'));
@@ -45,6 +46,7 @@ export default function App() {
         <Route path="cookie-and-advertising" element={<Legal.Cookies />} />
         <Route path="faq" element={<Legal.Faq />} />
         <Route path="blog/how-to-reduce-image-to-100kb" element={<Blog100KB />} />
+	<Route path="blog/compress-image-without-losing-quality" element={<BlogImageQuality />} />
 	<Route path="blog/how-to-convert-jpg-to-webp-online" element={<BlogJpgToWebP />}/>
 	<Route path="blog/how-to-merge-pdf-files-for-free" element={<BlogMergePDF />} />
         <Route path=":slug" element={<SlugRoute />} />
