@@ -9,6 +9,16 @@ import { categoryTips, useCases, toolSeoContent } from '../data/toolContent.js';
 import { toolFaqs } from '../data/toolFaqs.js';
 import ToolList from '../components/ToolList.jsx';
 
+// True when two texts are mostly the same words, so a paragraph isn't shown twice on one page.
+function isRepeat(a = '', b = '') {
+  if (!a || !b) return false;
+  const words = (x) => new Set(x.toLowerCase().match(/[a-z0-9]+/g) || []);
+  const A = words(a), B = words(b);
+  let same = 0;
+  A.forEach((w) => { if (B.has(w)) same += 1; });
+  return same / Math.min(A.size, B.size) > 0.6;
+}
+
 export default function ToolPage({ tool }) {
   const cat = categories[tool.category];
   const Live = tool.live ? toolComponents[tool.slug] : null;
@@ -54,31 +64,26 @@ export default function ToolPage({ tool }) {
         </section>
       )}
 
-      {Live && tool.slug !== 'excel-formula-helper' && (
+      {seoContent && (
+        <section className="prose" aria-labelledby="seo-intro">
+          <h2 id="seo-intro">About {tool.name}</h2>
+          <p>{seoContent.intro}</p>
+        </section>
+      )}
+
+      {Live && (seoContent?.steps || tool.slug !== 'excel-formula-helper') && (
         <section aria-labelledby="how-h">
           <h2 id="how-h">How to use {tool.name}</h2>
           <ol className="plain-list">
-            <li>Add your file with drag and drop or the Browse files button.</li>
-            <li>Choose the options this tool offers.</li>
-            <li>Check the result, then press Download.</li>
+            {(seoContent?.steps || [
+              'Add your file with drag and drop or the Browse files button.',
+              'Choose the options this tool offers.',
+              'Check the result, then press Download.',
+            ]).map((step) => <li key={step}>{step}</li>)}
           </ol>
           <p className="muted">Your file is processed by your browser on your own device and is not uploaded. Files can be up to 25 MB each. Very large files may fail on devices with little memory.</p>
         </section>
       )}
-      {seoContent && (
-        <section className="prose" aria-labelledby="seo-intro">
-        <h2 id="seo-intro">About {tool.name}</h2>
-        <p>{seoContent.intro}</p>
-
-        <h2>How to {tool.name.toLowerCase()}</h2>
-        <ol className="plain-list">
-        {seoContent.steps.map((step) => (
-                <li key={step}>{step}</li>
-                ))}
-        </ol>
-
-                </section>
-        )}
       {Live && faqs.length > 0 && (
   	<section className="prose" aria-labelledby="faq-heading">
         <h2 id="faq-heading">Frequently Asked Questions</h2>
@@ -92,9 +97,15 @@ export default function ToolPage({ tool }) {
       )}
       {Live && useCases[tool.slug] && (
         <section aria-labelledby="use-h">
-          <h2 id="use-h">When to use it</h2>
-          <p>{useCases[tool.slug]}</p>
-          <h3>Tips for {cat.short.toLowerCase()} files</h3>
+          {isRepeat(useCases[tool.slug], seoContent?.intro) ? (
+            <h2 id="use-h">Tips for {cat.short.toLowerCase()} files</h2>
+          ) : (
+            <>
+              <h2 id="use-h">When to use it</h2>
+              <p>{useCases[tool.slug]}</p>
+              <h3>Tips for {cat.short.toLowerCase()} files</h3>
+            </>
+          )}
           <ul className="plain-list">{categoryTips[tool.category].map((t) => <li key={t}>{t}</li>)}</ul>
         </section>
       )}

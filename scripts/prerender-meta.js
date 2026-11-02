@@ -14,7 +14,7 @@ const cfg = fs.readFileSync(path.join(root, 'src/config.js'), 'utf8');
 const name = cfg.match(/name: '([^']+)'/)[1];
 const tagline = cfg.match(/tagline: '([^']+)'/)[1];
 const envFile = fs.existsSync(path.join(root, '.env')) ? fs.readFileSync(path.join(root, '.env'), 'utf8') : '';
-const site = (process.env.VITE_SITE_URL || (envFile.match(/^VITE_SITE_URL=(.*)$/m) || [])[1] || 'https://your-domain.com').trim().replace(/\/$/, '');
+const site = (process.env.VITE_SITE_URL || (envFile.match(/^VITE_SITE_URL=(.*)$/m) || [])[1] || 'https://www.fylzora.online').trim().replace(/\/$/, '');
 const client = (process.env.VITE_ADSENSE_CLIENT || '').trim();
 const adScript = /^ca-pub-\d{16}$/.test(client)
   ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}" crossorigin="anonymous"></script>\n` : '';
@@ -64,7 +64,7 @@ function render(p, file404 = false) {
           name: label,
           item: site + to,
         })),
-      }) + '</script>\\n'
+      }) + '</script>\n'
     : '';
   let h = tpl
     .replace(/<title>.*?<\/title>/, `<title>${esc(full)}</title>`)

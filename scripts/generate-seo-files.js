@@ -21,8 +21,7 @@ function readEnvFile() {
 }
 
 const env = { ...readEnvFile(), ...process.env };
-const site = (env.VITE_SITE_URL || 'https://your-domain.com').replace(/\/$/, '');
-const today = new Date().toISOString().slice(0, 10);
+const site = (env.VITE_SITE_URL || 'https://www.fylzora.online').replace(/\/$/, '');
 
 const paths = [
   '/blog/how-to-reduce-image-to-100kb',
@@ -42,7 +41,7 @@ const paths = [
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${paths.map((p) => `  <url><loc>${site}${p === '/' ? '/' : p}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
+${paths.map((p) => `  <url><loc>${site}${p === '/' ? '/' : p}</loc></url>`).join('\n')}
 </urlset>
 `;
 
