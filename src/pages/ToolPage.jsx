@@ -81,7 +81,7 @@ export default function ToolPage({ tool }) {
               'Check the result, then press Download.',
             ]).map((step) => <li key={step}>{step}</li>)}
           </ol>
-          <p className="muted">Your file is processed by your browser on your own device and is not uploaded. Files can be up to 25 MB each. Very large files may fail on devices with little memory.</p>
+          <p className="muted">Files are processed in your browser on your device. File size limits vary by tool, so check the limit shown in the tool instructions. Large files may use significant device memory.</p>
         </section>
       )}
       {Live && faqs.length > 0 && (

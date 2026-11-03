@@ -21,15 +21,61 @@ const ads = !!siteConfig.adsenseClient;
 
 export function About() {
   return (
-    <Doc title="About Us" path="/about" description={`What ${name} is and how its tools handle your files.`}>
-      <p>{name} is a collection of free utilities for everyday work with images, PDFs, Word documents and Excel spreadsheets: compressing a photo for a form, merging PDFs for an application, converting a spreadsheet to CSV.</p>
-      <h2>How we build</h2>
-      <p>We write tools so that processing happens in your browser whenever that is technically possible. If a tool can’t do something reliably in the browser, we say so on its page instead of pretending otherwise.</p>
-      <h2>Status</h2>
-      <p>Every image, PDF, Word and Excel tool listed on the site is available to use now.</p>
-      <h2>How we’re funded</h2>
-      <p>We plan to show Google AdSense advertising. Whether ads appear depends on Google’s review. Details are on the <Link to="/cookie-and-advertising">Cookies &amp; Advertising</Link> page.</p>
-      <p>Questions or corrections? See <Link to="/contact">Contact Us</Link>.</p>
+    <Doc title="About Us" path="/about" description={`Learn about ${name}, its free online tools, features and file processing.`}>
+      <p>
+        {name} is a free online utility website that helps people complete
+        everyday file-related tasks. It brings together tools for images,
+        PDF files, Word documents and Excel spreadsheets in one place.
+      </p>
+
+      <h2>What you can do with Fylzora</h2>
+      <ul>
+        <li><strong>Image tools:</strong> Compress, resize, convert and check image details.</li>
+        <li><strong>PDF tools:</strong> Merge, split, organize and manage PDF files.</li>
+        <li><strong>Word tools:</strong> Convert and work with supported document formats.</li>
+        <li><strong>Excel tools:</strong> Convert and manage supported spreadsheet files.</li>
+      </ul>
+
+      <h2>How to use our tools</h2>
+      <ol>
+        <li>Choose a tool based on the task you want to complete.</li>
+        <li>Read the instructions and check its supported file formats.</li>
+        <li>Select your file and use the available options.</li>
+        <li>Start processing and download the result when it is ready.</li>
+      </ol>
+
+      <h2>File processing and privacy</h2>
+      <p>
+        Many Fylzora tools process files directly in your browser whenever
+        technically possible. Processing methods can differ between tools.
+        Please check the instructions on each tool page to understand how
+        your file is handled.
+      </p>
+      <p>
+        We do not ask visitors to create an account to use our tools.
+        Read our <Link to="/privacy-policy">Privacy Policy</Link> for more
+        information about data, cookies and advertising.
+      </p>
+
+      <h2>Our approach</h2>
+      <p>
+        We aim to make common file tasks simple and accessible. We continue
+        to improve our tools, instructions and supported features based on
+        user needs and feedback.
+      </p>
+
+      <h2>How Fylzora is funded</h2>
+      <p>
+        We may display advertisements through Google AdSense to support
+        website maintenance and development. Advertising availability
+        depends on Google's review and policies. Learn more on our  <Link to="/cookie-and-advertising"> Cookies &amp; Advertising</Link> page.
+      </p>
+
+      <h2>Contact us</h2>
+      <p>
+        Found a problem or have a suggestion? Visit our <Link to="/contact"> Contact Us</Link> page. We welcome useful
+        feedback that helps us improve Fylzora.
+      </p>
     </Doc>
   );
 }
@@ -54,8 +100,10 @@ export function Privacy() {
       <p>Like any website, our hosting provider may keep standard server logs, such as IP address, browser type, pages requested and timestamps, for security and operations. We do not ask you to create an account.</p>
       <h2>Cookies and local storage</h2>
       <p>We store your light or dark mode choice in your browser’s local storage so the site remembers it. This stays on your device.</p>
+      <h2>Analytics</h2>
+      <p>We use Google Analytics to understand how visitors use our website, such as which pages are visited and how the site performs. Google Analytics may use cookies or similar technologies to collect usage information. This information helps us improve our website. You can manage cookies through your browser settings.</p>
       <h2>Advertising</h2>
-      <p>We plan to display ads from Google AdSense. When ads are enabled, Google and its partners may use cookies or similar technologies to show and measure ads and may personalise them. See <Link to="/cookie-and-advertising">Cookies &amp; Advertising</Link> for details and how to manage your choices. {ads ? ' This site currently shows Google AdSense ads.' : ' This site doesn’t currently show ads.'}</p>
+      <p>Google AdSense may be used to display advertising on this site. When advertising is enabled, Google and its partners may use cookies or similar technologies to show and measure ads and may personalise them. See <Link to="/cookie-and-advertising">Cookies &amp; Advertising</Link> for details and how to manage your choices.</p>
       <h2>Third parties</h2>
       <p>We do not sell personal information. Services we use, such as hosting and advertising, have their own privacy policies.</p>
       <h2>Children</h2>
@@ -106,9 +154,11 @@ export function Cookies() {
   return (
     <Doc title="Cookies & Advertising" path="/cookie-and-advertising" updated description={`Which cookies ${name} uses and how advertising works on the site.`}>
       <h2>Cookies we use</h2>
-      <p>We don’t set tracking cookies ourselves. The site stores your theme choice (light or dark) in your browser’s local storage.</p>
+      <p>We store your theme choice (light or dark) in your browser’s local storage.</p>
+      <h2>Analytics</h2>
+      <p>Google Analytics may use cookies or similar technologies to measure website traffic and understand how visitors use Fylzora. You can manage cookies through your browser settings. Where required by law, analytics technologies should only be used after the necessary consent.</p>
       <h2>Advertising</h2>
-      <p>{ads ? 'This site shows Google AdSense ads.' : 'We intend to apply for Google AdSense. Approval is decided by Google and isn’t guaranteed, and no ads are shown until it is granted and enabled.'} When ads are on, Google and its advertising partners may use cookies to serve and measure ads, and ads may be personalised.</p>
+      <p>Google AdSense may be used to display advertising on this site. When advertising is enabled, Google and its advertising partners may use cookies or similar technologies to serve and measure ads. Ads may be personalised depending on your settings and applicable consent requirements.</p>
       <p>Where the law requires it, we will ask for your consent before loading advertising cookies.</p>
       <h2>Your choices</h2>
       <ul>
@@ -124,8 +174,8 @@ export function Cookies() {
 
 const faqs = [
   ['Is it really free?', 'Yes. There is no sign-up and no payment. The site plans to be supported by advertising.'],
-  ['Are my files uploaded to your servers?', 'No. The available tools process files in your browser on your own device. If a tool ever needs to upload a file, its page will say so before you start.'],
-  ['Which tools can I use today?', 'All the tools listed on the site are available. If one is ever unavailable, it is marked on its page.'],
+  ['Are my files uploaded to your servers?', 'Our tools are designed to process files in your browser on your device. Check each tool page for details about how it handles your files.'],
+  ['Which tools can I use today?', 'Visit the All Tools page to explore the available tools. Each tool page explains its features and limitations.'],
   ['Why is my converted PDF or Word file different from the original?', 'Conversions between formats can’t always keep fonts and layout identical. Scanned documents are images and need OCR before their text can be edited.'],
   ['Why did my CSV lose its formulas and sheets?', 'CSV is plain text with one table per file, so formulas, formatting and extra sheets can’t be stored in it.'],
   ['Does it work with old .doc files?', 'Word tools work with .docx. Open an older .doc file in Word or LibreOffice and save it as .docx first.'],

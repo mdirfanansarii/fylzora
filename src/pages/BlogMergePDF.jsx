@@ -44,6 +44,16 @@ export default function BlogMergePDF() {
           <Link to="/pdf-merger">Open the free PDF Merger tool</Link>
         </p>
 
+	<h2>How does the Fylzora PDF Merger work?</h2>
+        <p>
+          Fylzora lets you add up to 30 PDF files, with a maximum
+          size of 25 MB per file. After uploading, the files appear
+          in a list. Use the up and down buttons to change their
+          order, or remove a file you do not need. When in the correct order, click the “Merge PDFs” button to combine the files.
+          The tool creates a file named merged.pdf. Open the
+          downloaded file and check its pages before sharing it.
+        </p>
+
         <h2>When should you merge PDF files?</h2>
 
         <ul>

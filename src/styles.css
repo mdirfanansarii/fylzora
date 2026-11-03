@@ -1137,3 +1137,9 @@ code { background: var(--surface); padding: .1rem .35rem; border-radius: 4px; wo
   object-fit: contain;
   display: block;
 }
+
+/* TEMPORARY PERFORMANCE TEST */
+.cat-block { content-visibility: visible !important; }
+
+/* TEMPORARY PERFORMANCE TEST */
+.cat-block { content-visibility: visible !important; }

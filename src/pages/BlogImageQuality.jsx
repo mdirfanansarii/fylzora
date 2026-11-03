@@ -110,6 +110,18 @@ export default function BlogImageQuality() {
         </li>
       </ul>
 
+      <h2>Real compression example from Fylzora</h2>
+      <p>
+        In a test using Fylzora Image Compressor, a JPG image was
+        reduced from 113.2KB to 98.4KB. Its dimensions stayed the
+        same at 1162 × 1280 pixels, giving a file size reduction
+        of about 13%. This shows that compression can reduce file
+        size without changing image dimensions. However, file size
+        alone does not prove that visual quality is unchanged.
+        Always compare the original and compressed images at 100%
+        zoom before using the result.
+      </p>
+
       <h2>Five ways to keep images looking clear</h2>
       <ol>
         <li>Use dimensions that match the image's actual display size.</li>

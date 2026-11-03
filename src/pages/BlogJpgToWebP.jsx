@@ -45,13 +45,22 @@ export default function BlogJpgToWebP() {
             Open the <Link to="/image-converter">Fylzora Image Converter</Link> tool.
           </li>
           <li>Upload your JPG image.</li>
-          <li>Select WebP as the output format.</li>
-          <li>Start the conversion.</li>
+          <li>Select WebP as the output format and adjust quality if needed.</li>
+          <li>Wait for the automatic conversion to finish.</li>
           <li>Preview the converted image.</li>
+          <li>Compare the original and converted file sizes and image quality.</li>
           <li>Download your WebP image.</li>
         </ol>
 
-
+	<h2>Real example: JPG to WebP conversion</h2>
+        <p>
+          In a test using Fylzora Image Converter, a JPG image
+          of 113.2KB was converted to a 40.1KB WebP image.
+          The dimensions remained unchanged at 1162 × 1280 pixels.
+          This reduced the file size by about 64.6%.
+          Results may vary depending on the original image and
+          conversion settings.
+        </p>
 
         <h2>Why Convert JPG to WebP?</h2>
         <ul>

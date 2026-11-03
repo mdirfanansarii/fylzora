@@ -29,8 +29,7 @@ export default function Blog100KB() {
       <p className="muted small">
         A practical guide to JPG, PNG and WebP image compression
       </p>
-
-      <p>
+     <p>
         Need to reduce an image size for an online form, email attachment,
         website, or document? A smaller image is easier to upload and share.
         If a website asks for an image under 100KB, you may need to adjust its
@@ -115,6 +114,16 @@ export default function Blog100KB() {
           size and visual quality. It supports lossy and lossless compression.
         </li>
       </ul>
+
+      <h2>Real example: Reducing a JPG image below 100KB</h2>
+      <p>
+        In one test with Fylzora Image Compressor, a 113.2KB JPG image
+        was reduced to 98.4KB. Its dimensions remained 1162 × 1280 pixels,
+        and the file size became about 13% smaller. This example shows
+        that an image can sometimes go below 100KB without changing
+        its dimensions. Results vary depending on the original image
+        and compression settings.
+      </p>
 
       <h2>Tips for getting an image below 100KB</h2>
       <ul>
