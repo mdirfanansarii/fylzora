@@ -110,9 +110,16 @@ export const toolsInCategory = (key) =>
 export const relatedTools = (tool, n = 4) => {
   const pool = tools.filter((x) => x.slug !== tool.slug && x.category === tool.category);
   const i = tools.findIndex((x) => x.slug === tool.slug);
-  return pool
-    .sort((a, b) => Math.abs(tools.indexOf(a) - i) - Math.abs(tools.indexOf(b) - i))
-    .slice(0, n);
+  const sorted = pool.sort(
+    (a, b) => Math.abs(tools.indexOf(a) - i) - Math.abs(tools.indexOf(b) - i)
+  );
+
+  if (tool.slug === 'image-checker') {
+    const compressor = sorted.find((x) => x.slug === 'image-compressor');
+    return [compressor, ...sorted.filter((x) => x.slug !== 'image-compressor')].slice(0, n);
+  }
+
+  return sorted.slice(0, n);
 };
 
 export function searchTools(query) {
