@@ -66,7 +66,7 @@ const rawTools = [
   t('word', 'document-formatter', 'Document Formatter', 'Format text online for free with Fylzora Document Formatter. Remove extra spaces, clean repeated blank lines and convert curly quotes to straight quotes. Copy the cleaned text or download it as a TXT or DOCX file.'),
 
   // ---- Excel (Phase 5) ----
-  t('excel', 'xlsx-to-csv', 'XLSX to CSV Converter', "Convert XLSX worksheets to CSV. Export one or all sheets. Formatting and colours are not preserved.",
+  t('excel', 'xlsx-to-csv', 'XLSX to CSV Converter', "Convert XLSX to CSV online for free with Fylzora. Export Excel worksheets as CSV files, choose one sheet or convert every sheet into separate CSV files. Spreadsheet values are preserved, but formatting, colours and formulas are not included.",
     { notes: ['CSV keeps values only: formulas, formatting and extra sheets are lost.'] }),
   t('excel', 'csv-to-xlsx', 'CSV to XLSX Converter', 'Convert CSV files into Excel XLSX workbooks. Parse comma-separated and quoted data, skip empty lines and create a single worksheet from the CSV table.'),
   t('excel', 'xlsx-to-json', 'XLSX to JSON Converter', "Convert XLSX worksheets to JSON. Use the first row as field names and group multiple sheets by name."),
