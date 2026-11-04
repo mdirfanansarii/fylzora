@@ -50,7 +50,7 @@ const rawTools = [
   t('pdf', 'pdf-page-extractor', 'PDF Page Extractor', 'Extract selected pages from PDF files online for free. Choose specific page numbers or page ranges to create a new PDF containing only the pages you need. Download your extracted PDF easily.'),
 
   // ---- Word (Phase 4) ----
-  t('word', 'docx-to-pdf', 'DOCX to PDF Converter', 'Convert a Word document to PDF.', { alsoIn: ['pdf'],
+  t('word', 'docx-to-pdf', 'DOCX to PDF Converter', 'Convert DOCX to PDF online for free. Turn Word documents into text-only PDF files that are easy to share and view. Please note that images, tables, fonts, colours and complex layouts are not preserved.', { alsoIn: ['pdf'],
     notes: ['This converter creates a text-only PDF. Images, table structure, fonts, colours and complex layouts are not preserved.'] }),
   t('word', 'docx-to-txt', 'DOCX to TXT Converter', "Extract plain text from DOCX files. Images, tables and formatting are not preserved."),
   t('word', 'txt-to-docx', 'TXT to DOCX Converter', 'Convert TXT to DOCX online for free. Turn text files into editable Word documents or create DOCX files from text you type or paste.'),
