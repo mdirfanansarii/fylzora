@@ -36,7 +36,7 @@ const rawTools = [
    { notes: ['Results depend on PDF content. PDFs without supported JPEG images may barely shrink.', 'Maximum compression makes text non-selectable and non-searchable.'] }),
   t('pdf', 'pdf-to-word', 'PDF to Word Converter', 'Convert PDF to Word online for free. Turn text-based PDF files into editable DOCX documents while keeping the text easy to edit.', { alsoIn: ['word'],
     notes: ['Scanned PDFs are pictures of text and need OCR, which this tool doesn’t do.', 'Images, tables and complex layouts are not recreated.'] }),
-  t('pdf', 'pdf-to-jpg', 'PDF to JPG & PNG Converter', "Convert PDF pages to JPG or PNG at 72, 144 or 216 DPI. Convert up to 60 pages and download images individually or as a ZIP."),
+  t('pdf', 'pdf-to-jpg', 'PDF to JPG & PNG Converter', "Convert PDF to JPG or PNG images online for free. Choose 72, 144 or 216 DPI resolution, convert up to 60 PDF pages and download images individually or as a ZIP file."),
   t('pdf', 'jpg-to-pdf', 'JPG & PNG to PDF Converter', 'Convert JPG and PNG images to PDF online for free. Combine multiple pictures into a single PDF, with each image on a separate page. Create and download your PDF easily.'),
   t('pdf', 'pdf-merger', 'PDF Merger', 'Merge PDF files online for free. Combine multiple PDF documents into one file in your preferred order. Upload your PDFs and download the merged file.'),
   t('pdf', 'pdf-splitter', 'PDF Splitter', 'Split PDF files online for free by page range. Divide a PDF into smaller PDF files by choosing the pages you want to split. Download your split PDF files easily.'),
