@@ -56,7 +56,7 @@ const rawTools = [
   t('word', 'txt-to-docx', 'TXT to DOCX Converter', 'Convert TXT to DOCX online for free. Turn text files into editable Word documents or create DOCX files from text you type or paste.'),
   t('word', 'docx-to-html', 'DOCX to HTML Converter', 'Convert DOCX to HTML online for free. Turn Word documents into clean HTML files that you can download and use on websites. Headings, paragraphs and basic text formatting are supported.'),
   t('word', 'docx-to-markdown', 'DOCX to Markdown Converter', 'Convert DOCX to Markdown online for free. Turn Word documents into Markdown (.md) files that you can read, edit and reuse. The converted Markdown is also available to download.'),
-  t('word', 'docx-compressor', 'DOCX Compressor', "Reduce DOCX file size by optimising supported JPEG images. Text and PNG images are not compressed.",
+  t('word', 'docx-compressor', 'DOCX Compressor', "Compress DOCX files online for free by optimizing supported JPEG images. Reduce Word document file size and download the compressed file. Text and PNG images are not compressed, so file size reduction may be small.",
     { notes: ['Gains are often small, especially for text-only documents.'] }),
   t('word', 'docx-editor', 'DOCX Editor', 'Write and edit a document in a simple rich-text editor, then save it as DOCX.',
     { notes: ['Only .docx is supported. Older .doc files must be re-saved as .docx first.'] }),
