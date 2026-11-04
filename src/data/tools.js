@@ -63,7 +63,7 @@ const rawTools = [
   t('word', 'docx-viewer', 'DOCX Viewer', 'View DOCX files online for free without installing Microsoft Word. Open and read Word documents directly in your browser with headings, paragraphs and basic text formatting. Upload a DOCX file to view its content easily.'),
   t('word', 'word-counter', 'Word Counter', 'Count words and characters online for free with Fylzora Word Counter. Check sentences, paragraphs, estimated page count and reading time instantly. Type or paste your text to get accurate text statistics as you edit.'),
   t('word', 'document-text-extractor', 'Document Text Extractor', 'Extract text from DOCX files online for free with Fylzora. Convert Word documents into plain text, view the extracted content and copy it easily. No need to install Microsoft Word. Images, tables and formatting are not preserved.'),
-  t('word', 'document-formatter', 'Document Formatter', 'Clean up spacing, line breaks and basic formatting.'),
+  t('word', 'document-formatter', 'Document Formatter', 'Format text online for free with Fylzora Document Formatter. Remove extra spaces, clean repeated blank lines and convert curly quotes to straight quotes. Copy the cleaned text or download it as a TXT or DOCX file.'),
 
   // ---- Excel (Phase 5) ----
   t('excel', 'xlsx-to-csv', 'XLSX to CSV Converter', "Convert XLSX worksheets to CSV. Export one or all sheets. Formatting and colours are not preserved.",
