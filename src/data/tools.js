@@ -43,7 +43,7 @@ const rawTools = [
   t('pdf', 'pdf-organizer', 'PDF Page Organizer', 'Organize PDF pages online for free. Reorder, rotate or delete PDF pages using page thumbnails. Arrange your document the way you want before downloading the updated PDF.'),
   t('pdf', 'pdf-editor', 'PDF Editor', "Edit PDF files online for free up to 25 MB. Add text, highlights and shapes, erase areas or replace supported text. Use flatten mode to convert edited PDF pages into images."),
   t('pdf', 'pdf-page-numbers', 'PDF Page Number Tool', "Add page numbers to PDF files online for free. Choose the number position, starting number and format, including Page X of Y. Download your numbered PDF easily."),
-  t('pdf', 'pdf-watermark', 'PDF Watermark Tool', "Add diagonal text watermarks to PDF pages. Adjust text size and opacity."),
+  t('pdf', 'pdf-watermark', 'PDF Watermark Tool', "Add text watermarks to PDF files online for free. Customize watermark text, size and opacity, and place diagonal watermarks on your PDF pages. Download your watermarked PDF easily."),
   t('pdf', 'pdf-password', 'PDF Password Protection', "Protect PDFs with a password. Optionally restrict printing and copying in compatible PDF viewers.",
     { notes: ['Use a password you can remember. A lost password cannot be recovered.', 'The file is encrypted in your browser. The password is not sent to a server.'] }),
   t('pdf', 'pdf-metadata', 'PDF Metadata Viewer', "View PDF properties, author, dates, page count, dimensions, file size and encryption status."),
