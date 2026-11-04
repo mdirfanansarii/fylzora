@@ -39,7 +39,7 @@ const rawTools = [
   t('pdf', 'pdf-to-jpg', 'PDF to JPG & PNG Converter', "Convert PDF pages to JPG or PNG at 72, 144 or 216 DPI. Convert up to 60 pages and download images individually or as a ZIP."),
   t('pdf', 'jpg-to-pdf', 'JPG & PNG to PDF Converter', 'Combine pictures into a single PDF, one image per page.'),
   t('pdf', 'pdf-merger', 'PDF Merger', 'Merge PDF files online for free. Combine multiple PDF documents into one file in your preferred order. Upload your PDFs and download the merged file.'),
-  t('pdf', 'pdf-splitter', 'PDF Splitter', 'Split a PDF into smaller files by page range.'),
+  t('pdf', 'pdf-splitter', 'PDF Splitter', 'Split PDF files online for free by page range. Divide a PDF into smaller PDF files by choosing the pages you want to split. Download your split PDF files easily.'),
   t('pdf', 'pdf-organizer', 'PDF Page Organizer', 'Reorder, rotate and delete pages using thumbnails.'),
   t('pdf', 'pdf-editor', 'PDF Editor', "Edit PDFs up to 25 MB. Add text, highlights and shapes, erase areas, or replace supported text. Flatten mode converts pages to images."),
   t('pdf', 'pdf-page-numbers', 'PDF Page Number Tool', "Add PDF page numbers. Choose their position, starting number and optional Page X of Y format."),
