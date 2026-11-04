@@ -44,7 +44,7 @@ const rawTools = [
   t('pdf', 'pdf-editor', 'PDF Editor', "Edit PDF files online for free up to 25 MB. Add text, highlights and shapes, erase areas or replace supported text. Use flatten mode to convert edited PDF pages into images."),
   t('pdf', 'pdf-page-numbers', 'PDF Page Number Tool', "Add page numbers to PDF files online for free. Choose the number position, starting number and format, including Page X of Y. Download your numbered PDF easily."),
   t('pdf', 'pdf-watermark', 'PDF Watermark Tool', "Add text watermarks to PDF files online for free. Customize watermark text, size and opacity, and place diagonal watermarks on your PDF pages. Download your watermarked PDF easily."),
-  t('pdf', 'pdf-password', 'PDF Password Protection', "Protect PDFs with a password. Optionally restrict printing and copying in compatible PDF viewers.",
+  t('pdf', 'pdf-password', 'PDF Password Protection', "Protect PDF files with a password online for free. Encrypt your PDF directly in your browser and optionally restrict printing and copying in compatible PDF viewers. Your password is not sent to a server.",
     { notes: ['Use a password you can remember. A lost password cannot be recovered.', 'The file is encrypted in your browser. The password is not sent to a server.'] }),
   t('pdf', 'pdf-metadata', 'PDF Metadata Viewer', "View PDF metadata online for free. Check a PDF file's title, author, creation date, modification date, page count, page dimensions, file size and encryption status."),
   t('pdf', 'pdf-page-extractor', 'PDF Page Extractor', 'Extract selected pages from PDF files online for free. Choose specific page numbers or page ranges to create a new PDF containing only the pages you need. Download your extracted PDF easily.'),
