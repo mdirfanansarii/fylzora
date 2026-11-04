@@ -81,7 +81,7 @@ const rawTools = [
   t('excel', 'blank-row-remover', 'Blank Row Remover', 'Remove blank rows from Excel and CSV files online for free with Fylzora. Clean your spreadsheets by removing empty rows and optionally deleting completely empty columns. Download your cleaned file as XLSX or CSV. Supports files up to 20 MB.'),
   t('excel', 'column-row-manager', 'Column & Row Manager', 'Manage Excel and CSV files online for free with Fylzora. Add or delete rows and columns, move columns left or right, and save your updated spreadsheet as XLSX or CSV. Supports files up to 20 MB.'),
   t('excel', 'spreadsheet-formatter', 'Spreadsheet Formatter', 'Format Excel and CSV files online for free with Fylzora. Remove blank rows, trim extra spaces and convert numbers stored as text into numeric values. Create a clean XLSX workbook with bold headers, a frozen header row and automatic column widths.'),
-  t('excel', 'excel-formula-helper', 'Excel Formula Helper', "Explore 20 Excel formulas with examples and explanations for calculations, lookups, text and dates."),
+  t('excel', 'excel-formula-helper', 'Excel Formula Helper', "Find Excel formulas online with Fylzora Formula Helper. Explore 20 useful Excel functions, including SUM, IF, COUNTIF, VLOOKUP, XLOOKUP, FILTER and UNIQUE. Search formulas, view examples and understand what each function does with simple explanations."),
 ];
 
 // Tools whose component exists in src/tools/components.js.
