@@ -70,7 +70,7 @@ const rawTools = [
     { notes: ['CSV keeps values only: formulas, formatting and extra sheets are lost.'] }),
   t('excel', 'csv-to-xlsx', 'CSV to XLSX Converter', 'Convert CSV to XLSX online for free with Fylzora. Turn CSV files into Excel spreadsheets that you can open and edit in Microsoft Excel or other spreadsheet apps. Convert comma-separated data into a downloadable XLSX workbook.'),
   t('excel', 'xlsx-to-json', 'XLSX to JSON Converter', "Convert XLSX to JSON online for free with Fylzora. Turn Excel worksheets into JSON files. Use the first row as field names and convert multiple worksheets into separate JSON objects grouped by sheet name."),
-  t('excel', 'xlsx-to-pdf', 'XLSX to PDF Converter', "Convert XLSX worksheets to landscape PDF pages. Wide tables may split across pages; formatting is not preserved.", { alsoIn: ['pdf'] }),
+  t('excel', 'xlsx-to-pdf', 'XLSX to PDF Converter', "Convert XLSX to PDF online for free with Fylzora. Turn Excel worksheets into landscape PDF pages that are easy to view and share. Wide tables continue on extra pages. Cell values are preserved, but colours, borders and fonts are not included.", { alsoIn: ['pdf'] }),
   t('excel', 'json-to-xlsx', 'JSON to XLSX Converter', 'Convert JSON arrays of objects or arrays into Excel XLSX workbooks. Object keys become column headings, while nested data is stored as JSON text in cells.'),
   t('excel', 'excel-viewer', 'Excel Viewer', 'View XLSX Excel workbooks online. Browse multiple worksheets and preview up to 200 rows and 30 columns at a time.'),
   t('excel', 'excel-editor', 'Excel Editor', "Edit XLSX cell values in up to 200 rows and 30 columns. Save changes as XLSX or CSV."),
