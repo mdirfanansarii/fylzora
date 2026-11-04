@@ -32,7 +32,7 @@ const rawTools = [
   t('image', 'image-background-color', 'Image Background Color Tool', "Change connected image background areas to a solid colour. Export as PNG, JPG or WebP."),
 
   // ---- PDF (Phase 3) ----
-  t('pdf', 'pdf-compressor', 'PDF Compressor', "Compress PDFs up to 25 MB. Choose image or maximum compression and compare file sizes. Maximum mode converts pages to JPEG images.",
+  t('pdf', 'pdf-compressor', 'PDF Compressor', "Compress PDF files online for free. Reduce PDF file size up to 25 MB with image or maximum compression. Compare the original and compressed file sizes before downloading.",
    { notes: ['Results depend on PDF content. PDFs without supported JPEG images may barely shrink.', 'Maximum compression makes text non-selectable and non-searchable.'] }),
   t('pdf', 'pdf-to-word', 'PDF to Word Converter', 'Convert PDF to Word online for free. Turn text-based PDF files into editable DOCX documents while keeping the text easy to edit.', { alsoIn: ['word'],
     notes: ['Scanned PDFs are pictures of text and need OCR, which this tool doesn’t do.', 'Images, tables and complex layouts are not recreated.'] }),
