@@ -21,7 +21,7 @@ const t = (category, slug, name, description, extra = {}) =>
 
 const rawTools = [
   // ---- Images (Phase 2) ----
-  t('image', 'image-compressor', 'Image Compressor', "Compress JPG, PNG and WebP images online. Adjust quality, choose output format and compare file sizes. PNG compression remains lossless."),
+  t('image', 'image-compressor', 'Image Compressor', "Compress JPG, PNG and WebP images online for free. Reduce image file size, adjust image quality and choose your preferred output format. Compare original and compressed file sizes before downloading."),
   t('image', 'image-converter', 'Image Converter', "Convert JPG, PNG, WebP, GIF and BMP images to JPG, PNG or WebP. Adjust output quality and keep image dimensions unchanged."),
   t('image', 'image-resizer', 'Image Resizer', "Resize JPG, PNG and WebP images by pixels or percentage. Keep the original aspect ratio or set custom dimensions."),
   t('image', 'image-cropper', 'Image Cropper', 'Crop JPG, PNG and WebP images online. Choose free crop or fixed aspect ratios, enter exact pixel dimensions and save the result in your preferred format.'),
