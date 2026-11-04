@@ -46,7 +46,7 @@ const rawTools = [
   t('pdf', 'pdf-watermark', 'PDF Watermark Tool', "Add text watermarks to PDF files online for free. Customize watermark text, size and opacity, and place diagonal watermarks on your PDF pages. Download your watermarked PDF easily."),
   t('pdf', 'pdf-password', 'PDF Password Protection', "Protect PDF files with a password online for free. Encrypt your PDF directly in your browser and optionally restrict printing and copying in compatible PDF viewers. Your password is not sent to a server.",
     { notes: ['Use a password you can remember. A lost password cannot be recovered.', 'The file is encrypted in your browser. The password is not sent to a server.'] }),
-  t('pdf', 'pdf-metadata', 'PDF Metadata Viewer', "View PDF metadata online for free. Check a PDF file's title, author, creation date, modification date, page count, page dimensions, file size and encryption status."),
+  t('pdf', 'pdf-metadata', 'PDF Metadata Viewer', "View PDF metadata online for free. Check a PDF file's title, author, subject, keywords, creator, producer, creation date, modification date, page count, file size and encryption status."),
   t('pdf', 'pdf-page-extractor', 'PDF Page Extractor', 'Extract selected pages from PDF files online for free. Choose specific page numbers or page ranges to create a new PDF containing only the pages you need. Download your extracted PDF easily.'),
 
   // ---- Word (Phase 4) ----
