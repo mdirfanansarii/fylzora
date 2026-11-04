@@ -114,9 +114,14 @@ export const relatedTools = (tool, n = 4) => {
     (a, b) => Math.abs(tools.indexOf(a) - i) - Math.abs(tools.indexOf(b) - i)
   );
 
-  if (tool.slug === 'image-checker') {
-    const compressor = sorted.find((x) => x.slug === 'image-compressor');
-    return [compressor, ...sorted.filter((x) => x.slug !== 'image-compressor')].slice(0, n);
+  if (tool.slug === 'image-checker' || tool.slug === 'image-compressor') {
+    const prioritySlug = tool.slug === 'image-checker'
+      ? 'image-compressor'
+      : 'image-checker';
+    const priorityTool = sorted.find((x) => x.slug === prioritySlug);
+    if (priorityTool) {
+      return [priorityTool, ...sorted.filter((x) => x.slug !== prioritySlug)].slice(0, n);
+    }
   }
 
   return sorted.slice(0, n);
