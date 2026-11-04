@@ -54,7 +54,7 @@ const rawTools = [
     notes: ['This converter creates a text-only PDF. Images, table structure, fonts, colours and complex layouts are not preserved.'] }),
   t('word', 'docx-to-txt', 'DOCX to TXT Converter', "Extract text from DOCX files online for free. Convert Word documents into plain text that you can read, copy and reuse. Images, tables and text formatting are not preserved."),
   t('word', 'txt-to-docx', 'TXT to DOCX Converter', 'Convert TXT to DOCX online for free. Turn text files into editable Word documents or create DOCX files from text you type or paste.'),
-  t('word', 'docx-to-html', 'DOCX to HTML Converter', 'Convert a Word document into clean HTML.'),
+  t('word', 'docx-to-html', 'DOCX to HTML Converter', 'Convert DOCX to HTML online for free. Turn Word documents into clean HTML files that you can download and use on websites. Headings, paragraphs and basic text formatting are supported.'),
   t('word', 'docx-to-markdown', 'DOCX to Markdown Converter', 'Convert a Word document into Markdown.'),
   t('word', 'docx-compressor', 'DOCX Compressor', "Reduce DOCX file size by optimising supported JPEG images. Text and PNG images are not compressed.",
     { notes: ['Gains are often small, especially for text-only documents.'] }),
