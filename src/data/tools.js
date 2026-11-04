@@ -47,7 +47,7 @@ const rawTools = [
   t('pdf', 'pdf-password', 'PDF Password Protection', "Protect PDFs with a password. Optionally restrict printing and copying in compatible PDF viewers.",
     { notes: ['Use a password you can remember. A lost password cannot be recovered.', 'The file is encrypted in your browser. The password is not sent to a server.'] }),
   t('pdf', 'pdf-metadata', 'PDF Metadata Viewer', "View PDF metadata online for free. Check a PDF file's title, author, creation date, modification date, page count, page dimensions, file size and encryption status."),
-  t('pdf', 'pdf-page-extractor', 'PDF Page Extractor', 'Pull selected pages out of a PDF into a new file.'),
+  t('pdf', 'pdf-page-extractor', 'PDF Page Extractor', 'Extract selected pages from PDF files online for free. Choose specific page numbers or page ranges to create a new PDF containing only the pages you need. Download your extracted PDF easily.'),
 
   // ---- Word (Phase 4) ----
   t('word', 'docx-to-pdf', 'DOCX to PDF Converter', 'Convert a Word document to PDF.', { alsoIn: ['pdf'],
