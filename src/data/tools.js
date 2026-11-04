@@ -34,7 +34,7 @@ const rawTools = [
   // ---- PDF (Phase 3) ----
   t('pdf', 'pdf-compressor', 'PDF Compressor', "Compress PDFs up to 25 MB. Choose image or maximum compression and compare file sizes. Maximum mode converts pages to JPEG images.",
    { notes: ['Results depend on PDF content. PDFs without supported JPEG images may barely shrink.', 'Maximum compression makes text non-selectable and non-searchable.'] }),
-  t('pdf', 'pdf-to-word', 'PDF to Word Converter', 'Turn a text-based PDF into an editable DOCX file.', { alsoIn: ['word'],
+  t('pdf', 'pdf-to-word', 'PDF to Word Converter', 'Convert PDF to Word online for free. Turn text-based PDF files into editable DOCX documents while keeping the text easy to edit.', { alsoIn: ['word'],
     notes: ['Scanned PDFs are pictures of text and need OCR, which this tool doesn’t do.', 'Images, tables and complex layouts are not recreated.'] }),
   t('pdf', 'pdf-to-jpg', 'PDF to JPG & PNG Converter', "Convert PDF pages to JPG or PNG at 72, 144 or 216 DPI. Convert up to 60 pages and download images individually or as a ZIP."),
   t('pdf', 'jpg-to-pdf', 'JPG & PNG to PDF Converter', 'Combine pictures into a single PDF, one image per page.'),
