@@ -27,7 +27,7 @@ const rawTools = [
   t('image', 'image-cropper', 'Image Cropper', 'Crop JPG, PNG and WebP images online. Choose free crop or fixed aspect ratios, enter exact pixel dimensions and save the result in your preferred format.'),
   t('image', 'image-rotator', 'Image Rotator', 'Rotate JPG, PNG and WebP images online in 90-degree steps. Flip images horizontally or vertically and download the result in the original format.'),
   t('image', 'image-checker', 'Image Size Checker', "Check image size, dimensions and file format online. View image width and height in pixels and file size. Supports JPG, PNG, WebP, GIF and BMP files up to 25 MB."),
-  t('image', 'multiple-image-compressor', 'Multiple Image Compressor', "Compress up to 20 JPG, PNG and WebP images. Adjust quality, compare sizes and download files individually or in a ZIP."),
+  t('image', 'multiple-image-compressor', 'Multiple Image Compressor', "Compress multiple JPG, PNG and WebP images online for free. Reduce the file size of up to 20 images at once, adjust image quality and download compressed images individually or as a ZIP file."),
   t('image', 'image-quality-controller', 'Image Quality Controller', "Adjust JPG and WebP image quality from 10% to 100%. Preview results and compare file sizes. PNG remains lossless."),
   t('image', 'image-background-color', 'Image Background Color Tool', "Change connected image background areas to a solid colour. Export as PNG, JPG or WebP."),
 
