@@ -58,7 +58,7 @@ const rawTools = [
   t('word', 'docx-to-markdown', 'DOCX to Markdown Converter', 'Convert DOCX to Markdown online for free. Turn Word documents into Markdown (.md) files that you can read, edit and reuse. The converted Markdown is also available to download.'),
   t('word', 'docx-compressor', 'DOCX Compressor', "Compress DOCX files online for free by optimizing supported JPEG images. Reduce Word document file size and download the compressed file. Text and PNG images are not compressed, so file size reduction may be small.",
     { notes: ['Gains are often small, especially for text-only documents.'] }),
-  t('word', 'docx-editor', 'DOCX Editor', 'Write and edit a document in a simple rich-text editor, then save it as DOCX.',
+  t('word', 'docx-editor', 'DOCX Editor', 'Edit DOCX files online for free with a simple Word document editor. Format text with bold, italic, underline, headings and lists. Start with a blank document or edit an uploaded DOCX file, then download your edited document.',
     { notes: ['Only .docx is supported. Older .doc files must be re-saved as .docx first.'] }),
   t('word', 'docx-viewer', 'DOCX Viewer', 'Open and read a Word document without Word installed.'),
   t('word', 'word-counter', 'Word Counter', 'Count words, characters and estimated pages.'),
