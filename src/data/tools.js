@@ -60,7 +60,7 @@ const rawTools = [
     { notes: ['Gains are often small, especially for text-only documents.'] }),
   t('word', 'docx-editor', 'DOCX Editor', 'Edit DOCX files online for free with a simple Word document editor. Format text with bold, italic, underline, headings and lists. Start with a blank document or edit an uploaded DOCX file, then download your edited document.',
     { notes: ['Only .docx is supported. Older .doc files must be re-saved as .docx first.'] }),
-  t('word', 'docx-viewer', 'DOCX Viewer', 'Open and read a Word document without Word installed.'),
+  t('word', 'docx-viewer', 'DOCX Viewer', 'View DOCX files online for free without installing Microsoft Word. Open and read Word documents directly in your browser with headings, paragraphs and basic text formatting. Upload a DOCX file to view its content easily.'),
   t('word', 'word-counter', 'Word Counter', 'Count words, characters and estimated pages.'),
   t('word', 'document-text-extractor', 'Document Text Extractor', 'Copy all the text out of a document.'),
   t('word', 'document-formatter', 'Document Formatter', 'Clean up spacing, line breaks and basic formatting.'),
