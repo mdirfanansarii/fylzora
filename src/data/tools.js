@@ -68,7 +68,7 @@ const rawTools = [
   // ---- Excel (Phase 5) ----
   t('excel', 'xlsx-to-csv', 'XLSX to CSV Converter', "Convert XLSX to CSV online for free with Fylzora. Export Excel worksheets as CSV files, choose one sheet or convert every sheet into separate CSV files. Spreadsheet values are preserved, but formatting, colours and formulas are not included.",
     { notes: ['CSV keeps values only: formulas, formatting and extra sheets are lost.'] }),
-  t('excel', 'csv-to-xlsx', 'CSV to XLSX Converter', 'Convert CSV files into Excel XLSX workbooks. Parse comma-separated and quoted data, skip empty lines and create a single worksheet from the CSV table.'),
+  t('excel', 'csv-to-xlsx', 'CSV to XLSX Converter', 'Convert CSV to XLSX online for free with Fylzora. Turn CSV files into Excel spreadsheets that you can open and edit in Microsoft Excel or other spreadsheet apps. Convert comma-separated data into a downloadable XLSX workbook.'),
   t('excel', 'xlsx-to-json', 'XLSX to JSON Converter', "Convert XLSX worksheets to JSON. Use the first row as field names and group multiple sheets by name."),
   t('excel', 'xlsx-to-pdf', 'XLSX to PDF Converter', "Convert XLSX worksheets to landscape PDF pages. Wide tables may split across pages; formatting is not preserved.", { alsoIn: ['pdf'] }),
   t('excel', 'json-to-xlsx', 'JSON to XLSX Converter', 'Convert JSON arrays of objects or arrays into Excel XLSX workbooks. Object keys become column headings, while nested data is stored as JSON text in cells.'),
