@@ -26,9 +26,14 @@ export default function BlogImageQuality() {
           losing quality
         </p>
       </nav>
-
       <h1>How to Compress an Image Without Losing Quality</h1>
       <p className="muted small">A practical guide to smaller image files</p>
+
+      <p>
+        Before compressing an image, you can use the{' '}
+        <Link to="/image-checker">Fylzora Image Size Checker</Link> to view its
+        dimensions, file size and actual image format.
+      </p>
 
       <p>
         Large image files can take longer to upload, share, or load on a

@@ -24,11 +24,17 @@ export default function Blog100KB() {
           <Link to="/">Home</Link> / Image guides / Reduce an image to 100KB
         </p>
       </nav>
-
       <h1>How to Reduce an Image to 100KB Online</h1>
       <p className="muted small">
         A practical guide to JPG, PNG and WebP image compression
       </p>
+
+      <p>
+        Before compressing an image, you can use the{' '}
+        <Link to="/image-checker">Fylzora Image Size Checker</Link> to view its
+        dimensions, file size and actual image format.
+      </p>
+
      <p>
         Need to reduce an image size for an online form, email attachment,
         website, or document? A smaller image is easier to upload and share.
