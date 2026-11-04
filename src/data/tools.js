@@ -38,7 +38,7 @@ const rawTools = [
     notes: ['Scanned PDFs are pictures of text and need OCR, which this tool doesn’t do.', 'Images, tables and complex layouts are not recreated.'] }),
   t('pdf', 'pdf-to-jpg', 'PDF to JPG & PNG Converter', "Convert PDF pages to JPG or PNG at 72, 144 or 216 DPI. Convert up to 60 pages and download images individually or as a ZIP."),
   t('pdf', 'jpg-to-pdf', 'JPG & PNG to PDF Converter', 'Combine pictures into a single PDF, one image per page.'),
-  t('pdf', 'pdf-merger', 'PDF Merger', 'Join several PDFs into one file in the order you choose.'),
+  t('pdf', 'pdf-merger', 'PDF Merger', 'Merge PDF files online for free. Combine multiple PDF documents into one file in your preferred order. Upload your PDFs and download the merged file.'),
   t('pdf', 'pdf-splitter', 'PDF Splitter', 'Split a PDF into smaller files by page range.'),
   t('pdf', 'pdf-organizer', 'PDF Page Organizer', 'Reorder, rotate and delete pages using thumbnails.'),
   t('pdf', 'pdf-editor', 'PDF Editor', "Edit PDFs up to 25 MB. Add text, highlights and shapes, erase areas, or replace supported text. Flatten mode converts pages to images."),
