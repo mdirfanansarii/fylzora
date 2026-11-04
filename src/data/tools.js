@@ -53,7 +53,7 @@ const rawTools = [
   t('word', 'docx-to-pdf', 'DOCX to PDF Converter', 'Convert a Word document to PDF.', { alsoIn: ['pdf'],
     notes: ['This converter creates a text-only PDF. Images, table structure, fonts, colours and complex layouts are not preserved.'] }),
   t('word', 'docx-to-txt', 'DOCX to TXT Converter', "Extract plain text from DOCX files. Images, tables and formatting are not preserved."),
-  t('word', 'txt-to-docx', 'TXT to DOCX Converter', 'Create a Word document from a TXT file or text you type or paste.'),
+  t('word', 'txt-to-docx', 'TXT to DOCX Converter', 'Convert TXT to DOCX online for free. Turn text files into editable Word documents or create DOCX files from text you type or paste.'),
   t('word', 'docx-to-html', 'DOCX to HTML Converter', 'Convert a Word document into clean HTML.'),
   t('word', 'docx-to-markdown', 'DOCX to Markdown Converter', 'Convert a Word document into Markdown.'),
   t('word', 'docx-compressor', 'DOCX Compressor', "Reduce DOCX file size by optimising supported JPEG images. Text and PNG images are not compressed.",
