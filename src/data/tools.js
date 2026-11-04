@@ -62,7 +62,7 @@ const rawTools = [
     { notes: ['Only .docx is supported. Older .doc files must be re-saved as .docx first.'] }),
   t('word', 'docx-viewer', 'DOCX Viewer', 'View DOCX files online for free without installing Microsoft Word. Open and read Word documents directly in your browser with headings, paragraphs and basic text formatting. Upload a DOCX file to view its content easily.'),
   t('word', 'word-counter', 'Word Counter', 'Count words and characters online for free with Fylzora Word Counter. Check sentences, paragraphs, estimated page count and reading time instantly. Type or paste your text to get accurate text statistics as you edit.'),
-  t('word', 'document-text-extractor', 'Document Text Extractor', 'Copy all the text out of a document.'),
+  t('word', 'document-text-extractor', 'Document Text Extractor', 'Extract text from DOCX files online for free with Fylzora. Convert Word documents into plain text, view the extracted content and copy it easily. No need to install Microsoft Word. Images, tables and formatting are not preserved.'),
   t('word', 'document-formatter', 'Document Formatter', 'Clean up spacing, line breaks and basic formatting.'),
 
   // ---- Excel (Phase 5) ----
