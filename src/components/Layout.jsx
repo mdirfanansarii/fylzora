@@ -26,7 +26,7 @@ export default function Layout() {
       <header className="site-header">
         <div className="wrap header-row">
           <Link to="/" className="brand" aria-label={`${siteConfig.name} home`}>
-            <img src="/fylzora-logo.webp" alt="Fylzora logo" className="site-logo" />
+            <img src="/fylzora-logo.webp" alt="Fylzora logo" className="site-logo" width="36" height="36" />
             <span>{siteConfig.name}</span>
           </Link>
 
@@ -67,8 +67,7 @@ export default function Layout() {
               <img
                 src="/fylzora-logo.webp"
                 alt="Fylzora logo"
-                className="site-logo"
-              />
+                className="site-logo" width="36" height="36" />
               <span>{siteConfig.name}</span>
             </Link>
             <p className="muted small">{siteConfig.tagline} for images, PDF, Word and Excel files. Not affiliated with Adobe, Microsoft or Google.</p>
