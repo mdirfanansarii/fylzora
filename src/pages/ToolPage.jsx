@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { categories, categoryPath, relatedTools, toolPath } from '../data/tools.js';
 import { toolComponents } from '../tools/components.js';
@@ -22,6 +22,11 @@ function isRepeat(a = '', b = '') {
 export default function ToolPage({ tool }) {
   const cat = categories[tool.category];
   const Live = tool.live ? toolComponents[tool.slug] : null;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const crumbs = [
     { name: 'Home', to: '/' },
     { name: cat.name, to: categoryPath(tool.category) },
@@ -49,9 +54,13 @@ export default function ToolPage({ tool }) {
       {Live ? (
         // The tool UI. No ads inside or directly next to this block.
         <section className="tool-area" aria-label={`${tool.name} workspace`}>
-          <Suspense fallback={<p role="status">Loading tool…</p>}>
-            <Live />
-          </Suspense>
+          {mounted ? (
+            <Suspense fallback={<p role="status">Loading tool…</p>}>
+              <Live />
+            </Suspense>
+          ) : (
+            <p role="status">Loading tool…</p>
+          )}
         </section>
       ) : (
         <section className="status-panel" aria-labelledby="status-h">

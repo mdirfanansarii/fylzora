@@ -84,9 +84,23 @@ try {
     }
 
     const app = React.createElement(
-      StaticRouter,
-      { location: route.location },
-      React.createElement(App)
+      React.StrictMode,
+      null,
+      React.createElement(
+        StaticRouter,
+        { location: route.location },
+        React.createElement(
+          React.Suspense,
+          {
+            fallback: React.createElement(
+              'p',
+              { style: { textAlign: 'center', padding: '40px' } },
+              'Loading...'
+            ),
+          },
+          React.createElement(App)
+        )
+      )
     );
 
     const markup = renderToString(app);

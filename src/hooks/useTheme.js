@@ -9,8 +9,10 @@ function getInitialTheme() {
 }
 
 export function useTheme() {
-  const [theme, setTheme] = useState(getInitialTheme);
+  // Keep the first render consistent with server prerendering.
+  const [theme, setTheme] = useState('light');
 
+  // Apply the browser's saved theme after hydration.
   useEffect(() => {
     setTheme(getInitialTheme());
   }, []);
