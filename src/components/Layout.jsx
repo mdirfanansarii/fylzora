@@ -35,6 +35,7 @@ export default function Layout() {
               <NavLink key={c.slug} to={`/${c.slug}`}>{c.short}</NavLink>
             ))}
             <NavLink to="/all-tools">All tools</NavLink>
+            <NavLink to="/blog">Guides</NavLink>
           </nav>
 
           <div className="header-tools">
@@ -77,7 +78,7 @@ export default function Layout() {
             <ul>
               {Object.values(categories).map((c) => <li key={c.slug}><Link to={`/${c.slug}`}>{c.name}</Link></li>)}
               <li><Link to="/all-tools">All Tools</Link></li>
-              <li><Link to="/blog/how-to-reduce-image-to-100kb">Image size guide</Link></li>
+              <li><Link to="/blog">Guides</Link></li>
             </ul>
           </div>
           <div>

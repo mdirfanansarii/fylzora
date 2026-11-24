@@ -115,19 +115,16 @@ export default function BlogImageQuality() {
         </li>
       </ul>
 
-      <h2>Real compression example from Fylzora</h2>
+      <h2>How to compare the result properly</h2>
       <p>
-        In a test using Fylzora Image Compressor, a JPG image was
-        reduced from 113.2KB to 98.4KB. Its dimensions stayed the
-        same at 1162 × 1280 pixels, giving a file size reduction
-        of about 13%. This shows that compression can reduce file
-        size without changing image dimensions. However, file size
-        alone does not prove that visual quality is unchanged.
-        Always compare the original and compressed images at 100%
-        zoom before using the result.
+        Use the same viewing size when comparing the original and compressed
+        files. For example, if a photograph is 2,400 × 3,000 pixels and your
+        website displays it at about 800 × 1,000 pixels, a smaller copy may be
+        enough for that page. Keep the original for print or future editing.
+        Check fine text, hair, edges and smooth colour areas: these can reveal
+        compression damage that is easy to miss in a small thumbnail.
       </p>
-
-      <h2>Five ways to keep images looking clear</h2>
+<h2>Five ways to keep images looking clear</h2>
       <ol>
         <li>Use dimensions that match the image's actual display size.</li>
         <li>Lower lossy quality in small steps rather than all at once.</li>
@@ -172,6 +169,13 @@ export default function BlogImageQuality() {
         Not with every compression method or image. Use lossless compression
         when exact image information must be preserved, and inspect exported
         files before using them.
+      </p>
+
+      <h3>Should I compress an image more than once?</h3>
+      <p>
+        Avoid repeatedly exporting the same JPG or lossy WebP. Each lossy
+        export can discard more detail. Keep the original and create a new
+        compressed copy from it when you need different settings.
       </p>
 
       <h2>Try the image compressor</h2>

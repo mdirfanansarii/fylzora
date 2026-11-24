@@ -80,6 +80,19 @@ export default function Blog100KB() {
         </li>
       </ol>
 
+      <h2>Example: check all three image requirements</h2>
+      <p>
+        Imagine an application form asks for a photo no larger than 100KB and
+        gives exact pixel dimensions. First check the original file's format,
+        dimensions and file size with the{' '}
+        <Link to="/image-checker">Image Size Checker</Link>. If the dimensions
+        are too large, resize or crop the image to the form's required pixels.
+        Then use the{' '}
+        <Link to="/image-compressor">Image Compressor</Link> to reduce the file
+        size. Finally, check the exported file again. A file under 100KB can
+        still be rejected if its dimensions or format do not match the form.
+      </p>
+
       <h2>How to compress a JPG image</h2>
       <p>
         JPG, also called JPEG, is commonly used for photographs. It uses lossy
@@ -121,17 +134,16 @@ export default function Blog100KB() {
         </li>
       </ul>
 
-      <h2>Real example: Reducing a JPG image below 100KB</h2>
+      <h2>Example: What to check when aiming for 100KB</h2>
       <p>
-        In one test with Fylzora Image Compressor, a 113.2KB JPG image
-        was reduced to 98.4KB. Its dimensions remained 1162 × 1280 pixels,
-        and the file size became about 13% smaller. This example shows
-        that an image can sometimes go below 100KB without changing
-        its dimensions. Results vary depending on the original image
-        and compression settings.
+        There is no single quality setting that makes every image reach 100KB.
+        The result depends on the original image, its dimensions, format and
+        compression settings. Resize only when the destination does not need
+        the original dimensions, then adjust quality gradually and check the
+        saved file size and appearance.
       </p>
 
-      <h2>Tips for getting an image below 100KB</h2>
+<h2>Tips for getting an image below 100KB</h2>
       <ul>
         <li>Use JPG or WebP for photographs when the destination supports them.</li>
         <li>Reduce quality gradually instead of choosing the lowest setting immediately.</li>
@@ -140,6 +152,23 @@ export default function Blog100KB() {
         <li>Compare the compressed image with the original before using it.</li>
         <li>Keep a copy of your original image in case you need to try again.</li>
         <li>Check the file-size and image-dimension requirements of the website or form.</li>
+      </ul>
+
+      <h2>Common upload errors</h2>
+      <ul>
+        <li>
+          <strong>File size is accepted but the upload fails:</strong> check
+          the required format and pixel dimensions as well as the KB limit.
+        </li>
+        <li>
+          <strong>The form says the dimensions are wrong:</strong> resize or
+          crop to the exact width and height requested. Compression alone
+          does not change pixel dimensions.
+        </li>
+        <li>
+          <strong>The image looks unclear:</strong> return to the original
+          file and use a higher quality setting or larger dimensions.
+        </li>
       </ul>
 
       <h2>Why is my image still larger than 100KB?</h2>

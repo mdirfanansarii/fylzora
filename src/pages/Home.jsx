@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../config';
 import { categories, categoryPath, toolsInCategory } from '../data/tools.js';
+import { blogPosts, blogPath } from '../data/blogPosts.js';
 import { useSeo } from '../hooks/useSeo.js';
 import SearchBox from '../components/SearchBox.jsx';
 import ToolList from '../components/ToolList.jsx';
@@ -11,6 +12,15 @@ const categoryIcons = {
   word: 'W',
   excel: '▦',
 };
+
+const featuredGuides = [
+  'image-size-for-online-forms',
+  'how-to-reduce-pdf-file-size',
+  'pdf-to-word-formatting',
+  'csv-vs-xlsx',
+]
+  .map((slug) => blogPosts.find((p) => p.slug === slug))
+  .filter(Boolean);
 
 export default function Home() {
   useSeo({
@@ -148,6 +158,29 @@ export default function Home() {
             <ToolList items={toolsInCategory(key).slice(0, 6)} />
           </section>
         ))}
+
+        <section className="home-guides" aria-labelledby="guides-title">
+          <div className="section-heading">
+            <div>
+              <span className="section-kicker">LEARN MORE</span>
+              <h2 id="guides-title">Guides for everyday file problems</h2>
+              <p className="section-description">
+                Short, practical explanations that help you pick the right tool and get a clean result.
+              </p>
+            </div>
+            <Link to="/blog" className="section-link">
+              All guides <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+          <ul className="guide-list">
+            {featuredGuides.map((p) => (
+              <li key={p.slug}>
+                <Link to={blogPath(p)}>{p.title}</Link>
+                <p>{p.description}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section className="home-privacy" aria-labelledby="privacy-title">
           <div className="privacy-symbol" aria-hidden="true">⌁</div>

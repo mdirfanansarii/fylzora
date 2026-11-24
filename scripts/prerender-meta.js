@@ -7,6 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tools, categories } from '../src/data/tools.js';
 import { companyLinks, legalLinks } from '../src/data/pages.js';
+import { blogPosts } from '../src/data/blogPosts.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -26,6 +27,20 @@ const pages = [
   { path: '/blog/how-to-convert-jpg-to-webp-online', title: 'How to Convert JPG to WebP Online Free', desc: 'Learn how to convert JPG images to WebP online, understand the benefits of WebP, and optimize images for faster website loading.', index: true },
   { path: '/blog/how-to-merge-pdf-files-for-free', title: 'How to Merge PDF Files for Free Online', desc: 'Learn how to merge multiple PDF files into one PDF online for free. Follow simple steps to combine PDF documents in the order you choose.', index: true },
   { path: '/blog/compress-image-without-losing-quality', title: 'How to Compress an Image Without Losing Quality', desc: 'Learn how to reduce image file size while keeping good visual quality. Understand image compression, choose suitable settings, and follow simple online steps.', index: true },
+  { path: '/blog', title: 'Guides', desc: `Plain-language guides for everyday file problems: image upload limits, PDF size, Word and Excel conversions, from ${name}.`, index: true },
+  ...blogPosts
+    .filter((post) => ![
+      'how-to-reduce-image-to-100kb',
+      'how-to-convert-jpg-to-webp-online',
+      'how-to-merge-pdf-files-for-free',
+      'compress-image-without-losing-quality',
+    ].includes(post.slug))
+    .map((post) => ({
+      path: `/blog/${post.slug}`,
+      title: post.title,
+      desc: post.description,
+      index: true,
+    })),
   { path: '/', title: '', desc: 'Use free online tools to compress images, manage PDFs, and work with Word and Excel files directly in your browser, with no sign-up required.', index: true },
   { path: '/all-tools', title: 'All Tools', desc: 'Explore free online image, PDF, Word and Excel tools in one place. Find tools to manage files directly in your browser without installing software.', index: true },
   ...Object.entries(categories).map(([k, c]) => ({ path: `/${c.slug}`, title: c.name,
@@ -53,7 +68,10 @@ const breadcrumbMap = {
 function render(p, file404 = false) {
   const full = p.title ? `${p.title} | ${name}` : `${name} – ${tagline}`;
   const url = site + (p.path === '/' ? '/' : p.path);
-  const crumbs = breadcrumbMap[p.path];
+  const blogPost = blogPosts.find((post) => p.path === `/blog/${post.slug}`);
+  const crumbs = breadcrumbMap[p.path] || (blogPost
+    ? [['Home', '/'], ['Guides', '/blog'], [blogPost.title, p.path]]
+    : null);
   const breadcrumbJsonLd = crumbs
     ? '<script type="application/ld+json" id="ld-breadcrumbs">' + JSON.stringify({
         '@context': 'https://schema.org',

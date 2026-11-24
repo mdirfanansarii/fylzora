@@ -141,11 +141,11 @@ export const toolSeoContent = {
     ]
   },
   'pdf-organizer': {
-    intro: 'Organise PDF pages online for free with Fylzora PDF Page Organizer. Change page order, rotate individual pages in 90-degree steps and remove unwanted pages. Keep at least one page before saving your organised PDF.',
+    intro: 'Use Fylzora PDF Page Organizer to change the order of pages in a PDF without rebuilding the document from scratch. The tool displays the pages in a list. Move a page up or down, rotate it in 90-degree steps, or mark it for removal. You can review the list before applying the changes. At least one page must remain in the finished PDF.',
     steps: [
-      'Upload your PDF file and wait for the page previews.',
-      'Move, rotate or delete pages as needed.',
-      'Review the page thumbnails to confirm the order and rotation. Then save and download the updated PDF. At least one page must remain.',
+      'Upload a PDF file of up to 25 MB and wait for the page list to load.',
+      'Use the Up and Down controls to change a page position. Use Rotate to turn a page, or Remove to mark a page for deletion.',
+      'Review the page order and changes. Click Apply changes to create the updated PDF, then download and check the saved file. Keep at least one page.',
     ]
   },
   'pdf-page-numbers': {
@@ -271,7 +271,7 @@ export const toolSeoContent = {
     ]
   },
   'excel-editor': {
-    intro: 'Edit Excel XLSX files online for free with Fylzora Excel Editor. Upload a workbook up to 20 MB, browse its worksheets and change cell values directly in the spreadsheet grid. The editor displays up to 200 rows and 30 columns at a time. Edits apply to the visible cells; other workbook data is saved unchanged. Save the edited data as XLSX or CSV. Formulas are saved as their last calculated values, and original formatting may not be retained.',
+    intro: 'Edit Excel XLSX files online for free with Fylzora Excel Editor. Upload a workbook up to 20 MB, browse its worksheets and change cell values directly in the spreadsheet grid. The editor displays up to 200 rows and 30 columns at a time. Data outside the visible grid is retained when saving. The workbook is rebuilt from cell values, so original formatting is not retained. Save the edited data as XLSX or CSV.',
     steps: [
       'Upload your XLSX workbook.',
       'Choose a worksheet and edit the visible cells in the spreadsheet grid.',

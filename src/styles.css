@@ -1139,3 +1139,14 @@ code { background: var(--surface); padding: .1rem .35rem; border-radius: 4px; wo
 }
 
 
+
+/* ---- Guides and long-form content ---- */
+.guide-list { list-style: none; padding: 0; margin: 0 0 1.5rem; border-top: 1px solid var(--line); }
+.guide-list li { padding: .85rem .25rem; border-bottom: 1px solid var(--line); }
+.guide-list a { font-weight: 650; color: var(--ink); text-decoration: none; }
+.guide-list a:hover { color: var(--blue); text-decoration: underline; }
+.guide-list p { margin: .25rem 0 0; color: var(--muted); font-size: .95rem; max-width: 70ch; }
+.code-block { margin: 0 0 1.2em; padding: 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow-x: auto; font-size: .9rem; line-height: 1.5; }
+.prose h3 { margin-top: 1.4rem; }
+.prose .plain-list li { margin-bottom: .45em; }
+.home-guides { margin: 3.5rem 0; }

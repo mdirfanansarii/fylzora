@@ -5,19 +5,11 @@ import { toolComponents } from '../tools/components.js';
 import { useSeo } from '../hooks/useSeo.js';
 import AdSlot from '../components/AdSlot.jsx';
 import Breadcrumbs from '../components/Breadcrumbs.jsx';
-import { categoryTips, useCases, toolSeoContent } from '../data/toolContent.js';
+import { toolSeoContent } from '../data/toolContent.js';
 import { toolFaqs } from '../data/toolFaqs.js';
+import { toolGuides } from '../data/toolGuides.js';
+import { blogPosts, blogPath } from '../data/blogPosts.js';
 import ToolList from '../components/ToolList.jsx';
-
-// True when two texts are mostly the same words, so a paragraph isn't shown twice on one page.
-function isRepeat(a = '', b = '') {
-  if (!a || !b) return false;
-  const words = (x) => new Set(x.toLowerCase().match(/[a-z0-9]+/g) || []);
-  const A = words(a), B = words(b);
-  let same = 0;
-  A.forEach((w) => { if (B.has(w)) same += 1; });
-  return same / Math.min(A.size, B.size) > 0.6;
-}
 
 export default function ToolPage({ tool }) {
   const cat = categories[tool.category];
@@ -44,13 +36,15 @@ export default function ToolPage({ tool }) {
   const related = relatedTools(tool);
   const seoContent = toolSeoContent[tool.slug];
   const faqs = toolFaqs[tool.slug] || [];
+  const guide = toolGuides[tool.slug];
+  const guides = blogPosts.filter((p) => p.tools.includes(tool.slug));
 
   return (
     <div className="wrap page tool-page">
       <Breadcrumbs items={crumbs} />
       <h1>{tool.name}</h1>
-      <p className="lead">{tool.description}</p>
-     
+      <p className="lead">{guide?.summary || tool.description}</p>
+
       {Live ? (
         // The tool UI. No ads inside or directly next to this block.
         <section className="tool-area" aria-label={`${tool.name} workspace`}>
@@ -93,29 +87,25 @@ export default function ToolPage({ tool }) {
           <p className="muted">Files are processed in your browser on your device. File size limits vary by tool, so check the limit shown in the tool instructions. Large files may use significant device memory.</p>
         </section>
       )}
-      {Live && faqs.length > 0 && (
-  	<section className="prose" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently Asked Questions</h2>
-        {faqs.map(([question, answer]) => (
-      	  <details className="faq" key={question}>
-          <summary>{question}</summary>
-          <p>{answer}</p>
-          </details>
-        ))}
-  	</section>
+
+      {Live && guide && (
+        <section className="prose" aria-labelledby="use-h">
+          <h2 id="use-h">When to use {tool.name}</h2>
+          <p>{guide.when}</p>
+          <h3>Tips for better results</h3>
+          <ul className="plain-list">{guide.tips.map((t) => <li key={t}>{t}</li>)}</ul>
+        </section>
       )}
-      {Live && useCases[tool.slug] && (
-        <section aria-labelledby="use-h">
-          {isRepeat(useCases[tool.slug], seoContent?.intro) ? (
-            <h2 id="use-h">Tips for {cat.short.toLowerCase()} files</h2>
-          ) : (
-            <>
-              <h2 id="use-h">When to use it</h2>
-              <p>{useCases[tool.slug]}</p>
-              <h3>Tips for {cat.short.toLowerCase()} files</h3>
-            </>
-          )}
-          <ul className="plain-list">{categoryTips[tool.category].map((t) => <li key={t}>{t}</li>)}</ul>
+
+      {Live && faqs.length > 0 && (
+        <section className="prose" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Frequently Asked Questions</h2>
+          {faqs.map(([question, answer]) => (
+            <details className="faq" key={question}>
+              <summary>{question}</summary>
+              <p>{answer}</p>
+            </details>
+          ))}
         </section>
       )}
 
@@ -123,6 +113,20 @@ export default function ToolPage({ tool }) {
         <section aria-labelledby="notes-h">
           <h2 id="notes-h">Good to know</h2>
           <ul className="plain-list">{tool.notes.map((n) => <li key={n}>{n}</li>)}</ul>
+        </section>
+      )}
+
+      {guides.length > 0 && (
+        <section className="prose" aria-labelledby="guides-h">
+          <h2 id="guides-h">Guides that help</h2>
+          <ul className="guide-list">
+            {guides.map((p) => (
+              <li key={p.slug}>
+                <Link to={blogPath(p)}>{p.title}</Link>
+                <p>{p.description}</p>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 

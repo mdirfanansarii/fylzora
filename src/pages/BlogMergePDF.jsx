@@ -15,7 +15,7 @@ export default function BlogMergePDF() {
   });
 
   return (
-    <main className="wrap page prose">
+    <div className="wrap page prose">
       <article>
         <p>
           <Link to="/">Home</Link> / <Link to="/pdf-tools">PDF Tools</Link> /
@@ -63,6 +63,17 @@ export default function BlogMergePDF() {
           <li>Join scanned documents before sharing them.</li>
         </ul>
 
+        <h2>Example: put an application into the right order</h2>
+        <p>
+          Suppose you need to send one application containing a cover letter,
+          resume and certificates. Add the cover letter first, the resume
+          second and the certificates last. Use the file list's move controls
+          to set that order before merging. After downloading
+          <strong> merged.pdf</strong>, open it and check the first page, the
+          page where one source file changes to the next, and the final page.
+          This catches many ordering mistakes before you submit the document.
+        </p>
+
         <h2>Tips for merging PDFs</h2>
 
         <ul>
@@ -70,6 +81,82 @@ export default function BlogMergePDF() {
           <li>Make sure each PDF opens correctly before uploading it.</li>
           <li>Review the merged document to confirm that no pages are missing.</li>
           <li>Keep a backup of important original files.</li>
+        </ul>
+
+        <h2>Get your files ready first</h2>
+
+        <p>
+          A few minutes of preparation prevents most merging mistakes. Put all
+          the documents in one folder and add numbers to the start of their
+          names, such as 01-cover-letter.pdf, 02-resume.pdf and
+          03-certificates.pdf, so they are easy to arrange in the right order.
+          Open each file once to confirm that it is the correct version and
+          that every page is readable.
+        </p>
+        <p>
+          The tool cannot merge password-protected PDFs, so remove the
+          password in the program that created it before you upload the file.
+          Each PDF can be up to 25 MB.
+        </p>
+
+        <h2>Problems people run into</h2>
+
+        <h3>The merged file is too large to upload</h3>
+        <p>
+          Scanned pages are pictures, so they add up quickly. Run the merged
+          file through the <Link to="/pdf-compressor">PDF Compressor</Link>,
+          and read our guide on{' '}
+          <Link to="/blog/how-to-reduce-pdf-file-size">how to reduce PDF file size</Link>.
+        </p>
+
+        <h3>A page is sideways, upside down or in the wrong place</h3>
+        <p>
+          Open the merged file in the <Link to="/pdf-organizer">PDF Page Organizer</Link>{' '}
+          to rotate, reorder or delete pages without merging again.
+        </p>
+
+        <h3>You only need some pages from each file</h3>
+        <p>
+          Use the <Link to="/pdf-page-extractor">PDF Page Extractor</Link> on
+          each file first, then merge the smaller files.
+        </p>
+
+        <h3>The combined document has no page numbers</h3>
+        <p>
+          After merging, add continuous numbers with the{' '}
+          <Link to="/pdf-page-numbers">PDF Page Number Tool</Link>.
+        </p>
+
+        <h2>A short checklist before you submit</h2>
+
+        <ul>
+          <li>All documents are present and in the right order.</li>
+          <li>Every page is readable, including signatures and stamps.</li>
+          <li>The file has a clear name, such as YourName-Application.pdf.</li>
+          <li>The separate originals are still saved somewhere safe.</li>
+        </ul>
+
+        <h2>More checks if the merge does not work</h2>
+        <ul>
+          <li>
+            <strong>The file is rejected:</strong> confirm it is a PDF and
+            that each file is within the 25 MB limit.
+          </li>
+          <li>
+            <strong>The PDF asks for a password:</strong> this merger does not
+            accept password-protected PDFs. Only remove protection if you own
+            the document or have permission to do so.
+          </li>
+          <li>
+            <strong>A page is missing or unreadable:</strong> open the source
+            PDF separately to check whether the page is already damaged, then
+            try adding that source again.
+          </li>
+          <li>
+            <strong>The output is too large:</strong> compress the merged file
+            with the <Link to="/pdf-compressor">PDF Compressor</Link>, then
+            review the text and images for readability.
+          </li>
         </ul>
 
         <h2>Is merging PDF files free?</h2>
@@ -104,6 +191,6 @@ export default function BlogMergePDF() {
           page.
         </p>
       </article>
-    </main>
+    </div>
   );
 }

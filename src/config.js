@@ -8,5 +8,5 @@ export const siteConfig = {
   email: env.VITE_CONTACT_EMAIL || 'contact@fylzora.online',
   supportEmail: 'support@fylzora.online',
   adsenseClient: env.VITE_ADSENSE_CLIENT || '', // empty = no ads are loaded
-  lastUpdated: 'October 18, 2026',
+  lastUpdated: 'November 14, 2026',
 };

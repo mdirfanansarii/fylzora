@@ -15,7 +15,7 @@ export default function BlogJpgToWebP() {
   });
 
   return (
-    <main className="wrap page prose">
+    <div className="wrap page prose">
       <article>
         <p>
           <Link to="/">Home</Link> /{' '}
@@ -52,17 +52,16 @@ export default function BlogJpgToWebP() {
           <li>Download your WebP image.</li>
         </ol>
 
-	<h2>Real example: JPG to WebP conversion</h2>
+        <h2>Check the converted image before using it</h2>
         <p>
-          In a test using Fylzora Image Converter, a JPG image
-          of 113.2KB was converted to a 40.1KB WebP image.
-          The dimensions remained unchanged at 1162 × 1280 pixels.
-          This reduced the file size by about 64.6%.
-          Results may vary depending on the original image and
-          conversion settings.
+          A smaller number in the file-size column does not automatically mean
+          the image is suitable. Open the WebP file and compare it with the
+          original at the size people will see it. Look closely at text,
+          sharp edges, gradients and faces. If the image looks soft or shows
+          blocks around details, try a higher quality setting and convert
+          again from the original JPG.
         </p>
-
-        <h2>Why Convert JPG to WebP?</h2>
+<h2>Why Convert JPG to WebP?</h2>
         <ul>
           <li>
             <strong>Potentially smaller files:</strong> WebP can reduce file
@@ -123,6 +122,15 @@ export default function BlogJpgToWebP() {
           </tbody>
         </table>
 
+        <h2>When should you keep the JPG?</h2>
+        <p>
+          Keep the JPG if the website, form, office application or older
+          software you use does not accept WebP. JPG is also a practical
+          choice when someone specifically requests a .jpg or .jpeg file.
+          You can keep both formats: use WebP where it is supported and retain
+          the original JPG as a source copy.
+        </p>
+
         <h2>Frequently Asked Questions</h2>
 
         <h3>1. Can I convert JPG to WebP for free?</h3>
@@ -143,7 +151,14 @@ export default function BlogJpgToWebP() {
           appropriate fallback if your audience uses older systems.
         </p>
 
-        <h3>4. Will converting every JPG make it smaller?</h3>
+        <h3>4. What if a website does not accept WebP?</h3>
+        <p>
+          Use the original JPG or convert the image to a format the website
+          accepts. Do not rename a .webp file to .jpg; changing the filename
+          does not change the image format.
+        </p>
+
+        <h3>5. Will converting every JPG make it smaller?</h3>
         <p>
           No. The result depends on the original image, compression settings
           and quality level. Compare the file sizes after conversion.
@@ -155,6 +170,6 @@ export default function BlogJpgToWebP() {
           image utilities, or browse <Link to="/all-tools">all available tools</Link>.
         </p>
       </article>
-    </main>
+    </div>
   );
 }

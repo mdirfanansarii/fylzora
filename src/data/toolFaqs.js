@@ -70,10 +70,12 @@ export const toolFaqs = {
     ['Can I extract pages from a protected PDF?', 'No. Password-protected PDFs are not supported.']
   ],
   'pdf-organizer': [
-    ['Can I rearrange PDF pages?', 'Yes. Move pages into the order you want before saving the PDF.'],
-    ['Can I rotate or delete PDF pages?', 'Yes. You can rotate pages by 90 degrees and delete pages you do not need.'],
-    ['What is the maximum PDF file size?', 'You can upload a PDF file up to 25 MB.'],
-    ['Can I delete every page?', 'No. At least one page must remain in the PDF.']
+    ['How do I change the order of PDF pages?', 'Upload your PDF and use the Up and Down controls beside each page to move it through the list. Review the order before applying your changes.'],
+    ['Can I rotate an individual PDF page?', 'Yes. Use the Rotate control beside a page to turn it in 90-degree steps.'],
+    ['Can I remove a page and keep it if I change my mind?', 'Yes. Use Remove to mark a page for deletion. The control changes to Keep, so you can include that page again before applying the changes.'],
+    ['Does the tool show page thumbnails?', 'No. It displays an ordered list of pages with controls to move, rotate and remove them.'],
+    ['What is the maximum PDF file size?', 'You can upload one PDF file up to 25 MB.'],
+    ['Can I remove every page?', 'No. At least one page must remain in the finished PDF.']
   ],
   'pdf-page-numbers': [
     ['Can I add page numbers to a PDF?', 'Yes. The tool adds page numbers to every page of your PDF.'],

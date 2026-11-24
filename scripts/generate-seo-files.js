@@ -6,6 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tools, categories } from '../src/data/tools.js';
 import { companyLinks, legalLinks } from '../src/data/pages.js';
+import { blogPosts } from '../src/data/blogPosts.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -24,10 +25,8 @@ const env = { ...readEnvFile(), ...process.env };
 const site = (env.VITE_SITE_URL || 'https://www.fylzora.online').replace(/\/$/, '');
 
 const paths = [
-  '/blog/how-to-reduce-image-to-100kb',
-  '/blog/how-to-convert-jpg-to-webp-online',
-  '/blog/how-to-merge-pdf-files-for-free',
-  '/blog/compress-image-without-losing-quality',
+  '/blog',
+  ...blogPosts.map((post) => `/blog/${post.slug}`),
   '/',
   '/all-tools',
   // Category pages are noindex until at least one of their tools is live, so keep them out of the sitemap too.
