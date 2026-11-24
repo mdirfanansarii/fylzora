@@ -24,7 +24,7 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g
 
 const pages = [
   { path: '/blog/how-to-reduce-image-to-100kb', title: 'How to Reduce an Image to 100KB Online', desc: 'Learn how to compress JPG and PNG images online, reduce image size to around 100KB, choose WebP, and balance file size with image quality.', index: true },
-  { path: '/blog/how-to-convert-jpg-to-webp-online', title: 'How to Convert JPG to WebP Online Free', desc: 'Learn how to convert JPG images to WebP online, understand the benefits of WebP, and optimize images for faster website loading.', index: true },
+  { path: '/blog/how-to-convert-jpg-to-webp-online', title: 'How to Convert JPG to WebP Online Free', heading: 'How to Convert JPG to WebP Online for Free', desc: 'Learn how to convert JPG images to WebP online, understand the benefits of WebP, and optimize images for faster website loading.', index: true },
   { path: '/blog/how-to-merge-pdf-files-for-free', title: 'How to Merge PDF Files for Free Online', desc: 'Learn how to merge multiple PDF files into one PDF online for free. Follow simple steps to combine PDF documents in the order you choose.', index: true },
   { path: '/blog/compress-image-without-losing-quality', title: 'How to Compress an Image Without Losing Quality', desc: 'Learn how to reduce image file size while keeping good visual quality. Understand image compression, choose suitable settings, and follow simple online steps.', index: true },
   { path: '/blog', title: 'Guides', desc: `Plain-language guides for everyday file problems: image upload limits, PDF size, Word and Excel conversions, from ${name}.`, index: true },
@@ -92,7 +92,7 @@ function render(p, file404 = false) {
     .replace(/<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/gi, '')
    .replace('</head>', `${breadcrumbJsonLd}<link rel="canonical" href="${file404 ? site + '/' : url}">\n<meta property="og:url" content="${url}">\n<meta name="robots" content="${p.index ? 'index, follow' : 'noindex, follow'}">\n</head>`)
 
-    .replace(/<noscript>[\s\S]*?<\/noscript>/, `<noscript><h1>${esc(p.title || name)}</h1><p>${esc(p.desc)}</p><p>${name} needs JavaScript enabled, because its tools run inside your browser.</p></noscript>`);
+    .replace(/<noscript>[\s\S]*?<\/noscript>/, `<noscript><h1>${esc(p.heading || p.title || name)}</h1><p>${esc(p.desc)}</p><p>${name} needs JavaScript enabled, because its tools run inside your browser.</p></noscript>`);
   return h;
 }
 
