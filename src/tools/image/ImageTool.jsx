@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import DropZone from '../../components/DropZone.jsx';
 import { downloadZip } from '../../utils/zip.js';
+import { replaceBackground, DEFAULT_TOLERANCE, DEFAULT_EDGE } from '../../utils/replaceBackground.js';
 
 const MAX_MB = 25;
 const NAMES = { 'image/jpeg': 'JPG', 'image/png': 'PNG', 'image/webp': 'WebP' };
@@ -27,110 +28,6 @@ function outType(file, o, mode) {
   return BASIC.includes(file.type) ? file.type : 'image/png';
 }
 
-function replaceEdgeBackground(ctx, width, height, color) {
-  const image = ctx.getImageData(0, 0, width, height);
-  const data = image.data;
-  const total = width * height;
-  if (!total || !width || !height) return;
-
-  // Find the dominant colour along the image border instead of treating
-  // every corner as background (a corner can contain the person's clothes).
-  const bins = new Map();
-  const step = Math.max(1, Math.floor(Math.min(width, height) / 250));
-  const addBorderSample = (index) => {
-    const p = index * 4;
-    if (data[p + 3] < 32) return;
-    const r = data[p], g = data[p + 1], b = data[p + 2];
-    const key = `${r >> 5},${g >> 5},${b >> 5}`;
-    const item = bins.get(key) || { count: 0, r: 0, g: 0, b: 0 };
-    item.count++;
-    item.r += r;
-    item.g += g;
-    item.b += b;
-    bins.set(key, item);
-  };
-
-  for (let x = 0; x < width; x += step) {
-    addBorderSample(x);
-    if (height > 1) addBorderSample((height - 1) * width + x);
-  }
-  for (let y = 0; y < height; y += step) {
-    addBorderSample(y * width);
-    if (width > 1) addBorderSample(y * width + width - 1);
-  }
-
-  let sample = null;
-  for (const item of bins.values()) {
-    if (!sample || item.count > sample.count) sample = item;
-  }
-
-  const match = /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(
-    color || '#ffffff'
-  );
-  const rgb = match
-    ? [parseInt(match[1], 16), parseInt(match[2], 16), parseInt(match[3], 16)]
-    : [255, 255, 255];
-
-  // If the image has no opaque border pixels, only replace edge-connected
-  // transparent pixels with the selected background colour.
-  const background = sample
-    ? [sample.r / sample.count, sample.g / sample.count, sample.b / sample.count]
-    : null;
-
-  const original = new Uint8ClampedArray(data);
-  const visited = new Uint8Array(total);
-  const stack = new Int32Array(total);
-  let top = 0;
-
-  // Tighter threshold reduces the chance of matching similarly coloured clothes.
-  const tolerance = 26;
-  const isBackgroundPixel = (index) => {
-    const p = index * 4;
-    if (original[p + 3] < 32) return true;
-    if (!background) return false;
-
-    const dr = original[p] - background[0];
-    const dg = original[p + 1] - background[1];
-    const db = original[p + 2] - background[2];
-    return Math.max(Math.abs(dr), Math.abs(dg), Math.abs(db)) <= tolerance;
-  };
-
-  const push = (index) => {
-    if (index < 0 || index >= total || visited[index]) return;
-    if (!isBackgroundPixel(index)) return;
-    visited[index] = 1;
-    stack[top++] = index;
-  };
-
-  // Flood-fill only from the outer border. A shirt area inside the image
-  // will not be selected just because its colour resembles the background.
-  for (let x = 0; x < width; x++) {
-    push(x);
-    if (height > 1) push((height - 1) * width + x);
-  }
-  for (let y = 0; y < height; y++) {
-    push(y * width);
-    if (width > 1) push(y * width + width - 1);
-  }
-
-  while (top > 0) {
-    const index = stack[--top];
-    const p = index * 4;
-    data[p] = rgb[0];
-    data[p + 1] = rgb[1];
-    data[p + 2] = rgb[2];
-    data[p + 3] = 255;
-
-    const x = index % width;
-    if (x > 0) push(index - 1);
-    if (x + 1 < width) push(index + 1);
-    if (index >= width) push(index - width);
-    if (index + width < total) push(index + width);
-  }
-
-  ctx.putImageData(image, 0, 0);
-}
-
 async function render(file, o, mode) {
   const bmp = await createImageBitmap(file);
   try {
@@ -146,7 +43,7 @@ async function render(file, o, mode) {
     const ch = turn ? w : h;
     const c = document.createElement('canvas');
     c.width = cw; c.height = ch;
-    const ctx = c.getContext('2d');
+    const ctx = c.getContext('2d', { willReadFrequently: mode === 'background' });
     if (!ctx) throw new Error('Your browser could not create an image canvas. Try another browser.');
     const type = outType(file, o, mode);
     if (type === 'image/jpeg' && mode !== 'background') {
@@ -156,18 +53,28 @@ async function render(file, o, mode) {
     ctx.translate(cw / 2, ch / 2);
     if (mode === 'rotate') { ctx.rotate(o.rot * Math.PI / 180); ctx.scale(o.flipH ? -1 : 1, o.flipV ? -1 : 1); }
     ctx.drawImage(bmp, -w / 2, -h / 2, w, h);
+    let note = '';
     if (mode === 'background') {
-      replaceEdgeBackground(ctx, cw, ch, o.bg);
+      const res = await replaceBackground(c, {
+        key: file, // lets the person-detection result be reused while you change the colour
+        method: o.method,
+        color: o.bg,
+        tolerance: o.tol,
+        edge: o.edge,
+        picks: o.picks,
+      });
+      note = res.note;
     }
     const blob = await new Promise((r) => c.toBlob(r, type, o.q));
     if (!blob) throw new Error(`Your browser can’t create ${NAMES[type]} files. Try another output format.`);
-    return { blob, w: cw, h: ch, type };
+    return { blob, w: cw, h: ch, type, note };
   } finally { bmp.close(); }
 }
 
 const defaults = (mode) => ({
   fmt: mode === 'convert' ? 'image/webp' : mode === 'background' ? 'image/png' : 'same',
-  q: 0.75, unit: 'px', pct: 50, w: 0, h: 0, lock: true, rot: 0, flipH: false, flipV: false, bg: '#ffffff',
+  q: mode === 'background' ? 0.92 : 0.75, unit: 'px', pct: 50, w: 0, h: 0, lock: true, rot: 0, flipH: false, flipV: false, bg: '#ffffff',
+  method: 'person', tol: DEFAULT_TOLERANCE, edge: DEFAULT_EDGE, picks: [],
 });
 
 export default function ImageTool({ mode }) {
@@ -267,6 +174,20 @@ export default function ImageTool({ mode }) {
   const lossy = (t) => t === 'image/jpeg' || t === 'image/webp';
   const first = files[0];
   const showQ = (m === 'compress' || m === 'convert') && (o.fmt === 'same' || lossy(o.fmt));
+  // Colour method: click a part of the Original picture that is still background.
+  const pickColour = (e, f) => {
+    if (m !== 'background' || o.method !== 'colour') return;
+    const img = e.currentTarget;
+    const box = img.getBoundingClientRect();
+    const scale = Math.min(box.width / f.w, box.height / f.h); // object-fit: contain
+    const shownW = f.w * scale;
+    const shownH = f.h * scale;
+    const x = (e.clientX - box.left - (box.width - shownW) / 2) / shownW;
+    const y = (e.clientY - box.top - (box.height - shownH) / 2) / shownH;
+    if (x < 0 || x > 1 || y < 0 || y > 1) return;
+    set({ picks: [...o.picks, { x, y }].slice(-12) });
+  };
+  const pickMode = m === 'background' && o.method === 'colour';
   const fileName = (f, r) => `${f.file.name.replace(/\.[^.]+$/, '')}-${mode}.${EXT[r.type]}`;
 
   return (
@@ -329,6 +250,26 @@ export default function ImageTool({ mode }) {
             {m === 'background' && (
               <>
                 <label>Background colour<input type="color" value={o.bg} onChange={(e) => set({ bg: e.target.value })} /></label>
+                <label>Detection
+                  <select value={o.method} onChange={(e) => set({ method: e.target.value })}>
+                    <option value="person">Photo of a person (recommended)</option>
+                    <option value="colour">Plain colour background</option>
+                  </select>
+                </label>
+                {o.method === 'person' ? (
+                  <label>Cut-out edge: {o.edge > 0 ? '+' : ''}{o.edge}
+                    <input type="range" min="-10" max="10" step="1" value={o.edge} onChange={(e) => set({ edge: +e.target.value })} />
+                  </label>
+                ) : (
+                  <>
+                    <label>Sensitivity: {o.tol}
+                      <input type="range" min="8" max="70" step="1" value={o.tol} onChange={(e) => set({ tol: +e.target.value })} />
+                    </label>
+                    <button type="button" className="btn" disabled={!o.picks.length} onClick={() => set({ picks: [] })}>
+                      Clear picked colours{o.picks.length ? ` (${o.picks.length})` : ''}
+                    </button>
+                  </>
+                )}
                 <label>Output format
                   <select value={o.fmt} onChange={(e) => set({ fmt: e.target.value })}>
                     <option value="image/png">PNG</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option>
@@ -338,7 +279,21 @@ export default function ImageTool({ mode }) {
             )}
           </div>
 
-          {busy && <p role="status" className="muted">Processing…</p>}
+          {m === 'background' && (
+            <p className="small muted">
+              {o.method === 'person'
+                ? 'The picture is analysed on your device to find the person, so busy backgrounds (walls, curtains, windows) are replaced completely. If the outline looks too tight or too loose, move “Cut-out edge”. Use “Plain colour background” for products, logos and signatures.'
+                : 'Colour matching removes background colours that touch the edges of the picture. If a part of the background is left, click it in the Original picture to remove that colour too, or raise “Sensitivity”. For photos of people, use “Photo of a person”.'}
+            </p>
+          )}
+
+          {busy && (
+            <p role="status" className="muted">
+              {m === 'background' && o.method === 'person'
+                ? 'Processing… the first time, the detection files load (a few seconds).'
+                : 'Processing…'}
+            </p>
+          )}
 
           <ul className="img-results">
             {files.map((f, i) => {
@@ -347,7 +302,12 @@ export default function ImageTool({ mode }) {
               return (
                 <li key={f.id}>
                   <div className="pair">
-                    <figure><img src={f.url} alt={`Original ${f.file.name}`} /><figcaption>Original</figcaption></figure>
+                    <figure>
+                      <img src={f.url} alt={`Original ${f.file.name}`} onClick={(e) => pickColour(e, f)}
+                        style={pickMode ? { cursor: 'crosshair' } : undefined}
+                        title={pickMode ? 'Click a leftover background area to remove that colour' : undefined} />
+                      <figcaption>{pickMode ? 'Original (click leftover background)' : 'Original'}</figcaption>
+                    </figure>
                     {mode !== 'check' && r && r.url && <figure><img src={r.url} alt={`Result for ${f.file.name}`} /><figcaption>Result</figcaption></figure>}
                   </div>
                   <p className="small"><strong>{f.file.name}</strong></p>
@@ -361,6 +321,7 @@ export default function ImageTool({ mode }) {
                       {saved > 0 ? `${saved}% smaller` : 'No saving for this file. Try WebP or JPG output, or a lower quality.'}
                     </p>
                   )}
+                  {r && r.note && <p className="warn">{r.note}</p>}
                   {r && r.error && <p role="alert" className="err">{r.error}</p>}
                   {r && r.blob && <a className="btn btn-primary" href={r.url} download={fileName(f, r)}>Download {NAMES[r.type]}</a>}
                 </li>
